@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{22C6B2F9-99B3-4B2B-9976-84F67F62DDBE}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{342A4BA4-6258-4000-A1E8-AC3F022A026B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAAQpCbe+a0iaDc2044CSaIpSTgCFrgJaIYLW+KjhreUAAAAAAOgAAAAAIAACAAAABqCdtDV+qwPNpYh5G61oVKg6ITIDEqeDZ98O2F+YMe/jAAAACgMqJReW1MDFLtixbO5tkZ4/9q9oW2me4H7uRE8tyYxBsu108xg97U0acou/BE9DBAAAAATNZams+Ul1twLwJpzdVTdAbbDfrrd85GrZZyTxpWGipfFh0LjuzuDI0AVq7KM3fLgdHMIJc3zZJvrtuYjEd+fw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABixa5zKul0QUEZI3xJv5u/kIDe9mARPX70TY1G9Wm4ywAAAAAOgAAAAAIAACAAAACB3dVyfvIzHERvXvNLnpHD9XJdmQlr/C1F3z487u4hrDAAAAABkrclNuAOJLFHawwIKhLwLtQkmRli4eZaRWS13DboMdoWg6vlyMJJZZ32OWbLleRAAAAAZsXJ/YzDjrIRPhtGVl1BVptrHt3TmO3n2aGPVNJQGXbA2Ae2YqXM8al0cQ7bgU8JuBeM5EsXgbyAHF+5mUlCeQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           ConnectByProxy="False">
           <AccountKey
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAChDpTk+d5i8otHHbRkwAL285ZAfzfyGrByuSDspbm3ZQAAAAAOgAAAAAIAACAAAAC0o2tRpjQKNVhoOeqYrV1+kx04y29o59Byy67TsTzIzsAAAAB5Kahfuk55r1z7JCygVexqeeQ5NQaMWjRNpW3n/8cxsQtEVa5AcbEHvdJM81qGAWG9fMMwr2tOc40RutSIS8mARFveHiSBhLoXyU9JKnfG5ATIbUo1WXHLioCqoXdfKMKStAWZU31aaIVFStNdbO8wLs7fCsqcWL1599CNXUOBIKDQ3/bX/7NO1tPxfXcUjAd1m0QjiGuPo7pjrvY2AJcUar1qdskuYMbc+pxc/mQk9FM7Gs1gSx7MCtRhTeUrxsRAAAAAsCDW6L2UryfjSDtx9fNZrK+A5aQCiSZerrFuomlHCcQ/3q9KkMT3dKfs/eBFPVq5T8hVMLyMl/zGD7rUbAju1A</AccountKey>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD7YhOsieeKy5n4b2esuOEJRPPCvLdxBnO1zdtQblU9IAAAAAAOgAAAAAIAACAAAACfG+TEpgck0KbFcpdDu35EUZhSPs3i5ZKsWm+FM8oZ3MAAAACI+GJbIZtawv5bMxT9W8EYuV5DT3bFmx6WGs1EEGxiF0CPBKZBGbsuDZNSX8ULt/hw3hMyd0t6J0QcTrC2c2PwZ6WqutC7wHEZz+KJc+mXxTtQjxHn7yTM0FYhBzBB86npaW+wcP3h56QJpHqlFfVvdfTWTm9q2Tdgt/5+zOqwKpQZFMakl6nL7CqgtBEIo9JDMjyL6n/8Ty/LdMaTOznZpLx9SGhaMT3ptFgIHtNIAXjNhtKAXAgjNgX57k4uTPlAAAAAtu7W4gF1AjuiaajxDJ7hiKBQkKHWg/gLyksgfVe8U1ABtXw5ahTNI7lxJuvthAXdKSwJY2ppdjY2dXtk3+6azA</AccountKey>
         </AzureStorageConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1104,12 +1104,15 @@
           DTS:refId="Package\Foreach Loop Container\Script Task - Pop Up Box"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
+          DTS:Disabled="True"
           DTS:DTSID="{600E6872-53F4-4C06-8243-4C4958E3F66D}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task - Pop Up Box"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Disable">@[$Project::pDisablePopUpBox]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ScriptProject
               Name="ST_cbf4c30cd9f94e2d9532f3149ef5c4ca"
