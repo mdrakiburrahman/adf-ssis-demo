@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{342A4BA4-6258-4000-A1E8-AC3F022A026B}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{CB1FC4E6-D69E-41A8-BFBB-A7C19EC4B6C2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABixa5zKul0QUEZI3xJv5u/kIDe9mARPX70TY1G9Wm4ywAAAAAOgAAAAAIAACAAAACB3dVyfvIzHERvXvNLnpHD9XJdmQlr/C1F3z487u4hrDAAAAABkrclNuAOJLFHawwIKhLwLtQkmRli4eZaRWS13DboMdoWg6vlyMJJZZ32OWbLleRAAAAAZsXJ/YzDjrIRPhtGVl1BVptrHt3TmO3n2aGPVNJQGXbA2Ae2YqXM8al0cQ7bgU8JuBeM5EsXgbyAHF+5mUlCeQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAjT0nmN8UNOU04gGQo5TnrFCq+5h7FyoZA/vF4rkTt5wAAAAAOgAAAAAIAACAAAABXBuE1Wgw/pSI8k9+ZDkg2ESYRy/jUqsGNxfq7nitXkDAAAABA0nL6hU3N8LX3qKyf6Lnafp/3oE7IzPcYhbcOfOFbNsnK2mM7t9p4/QSQG/b7mfhAAAAAPrnqf8eSoo4qzek4pYq/4fmcWpGGk53LqMLOVGns0bBm34ztrHZg5k8ZJ6vy4GH7wjYxgnVu3hicHTJI4/stpg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           ConnectByProxy="False">
           <AccountKey
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD7YhOsieeKy5n4b2esuOEJRPPCvLdxBnO1zdtQblU9IAAAAAAOgAAAAAIAACAAAACfG+TEpgck0KbFcpdDu35EUZhSPs3i5ZKsWm+FM8oZ3MAAAACI+GJbIZtawv5bMxT9W8EYuV5DT3bFmx6WGs1EEGxiF0CPBKZBGbsuDZNSX8ULt/hw3hMyd0t6J0QcTrC2c2PwZ6WqutC7wHEZz+KJc+mXxTtQjxHn7yTM0FYhBzBB86npaW+wcP3h56QJpHqlFfVvdfTWTm9q2Tdgt/5+zOqwKpQZFMakl6nL7CqgtBEIo9JDMjyL6n/8Ty/LdMaTOznZpLx9SGhaMT3ptFgIHtNIAXjNhtKAXAgjNgX57k4uTPlAAAAAtu7W4gF1AjuiaajxDJ7hiKBQkKHWg/gLyksgfVe8U1ABtXw5ahTNI7lxJuvthAXdKSwJY2ppdjY2dXtk3+6azA</AccountKey>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAylBaaVoXHy34uuRVEmbnmNn3jFgMbdiojpB65W3ufvAAAAAAOgAAAAAIAACAAAACKnwfK/ZQye8fzF85IOnjmLRK82c+wyg7cGWmY5hhpDMAAAABSKmeflnqvowJ+n0an5pdll+abKS48FRR/p16NMK02n895b8CmWc+e3lciuRaL0dvh9xeio/hp+nHYsM9vzFPLSEKVsaPeirtdt5G4AvwpPHDIw/Ukk19hMnZChxfh5iahcWanUif1z/YOaLRM+SA+wE9bTB2B2hXH5hZEIbOG01GDUJO5ZjHfOaGGOYwu/+oooRgNZVfdXktWbFg269Aio1Rds83AK5YYxosbReX8yOMdJZwS0gP1PPZTsnmhiSpAAAAAu06oW76PeaM4QM+x11boy8NkLZPRTmoTLU/BTzgTVgroITZYhC/oR6q1ViEpQsHDR1/Y/WcG2Uxplhw0ZyuDqQ</AccountKey>
         </AzureStorageConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1853,10 +1853,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="528,387"
-          Size="528,430"
+          PanelSize="744,387"
+          Size="744,430"
           Id="Package\Foreach Loop Container"
-          TopLeft="577,250" />
+          TopLeft="630.5,250" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
