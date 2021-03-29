@@ -1,5 +1,5 @@
 {
-	"name": "2-DataLake_2_SQLMI_via_AzureFiles",
+	"name": "4-DataLake_2_SQLMI_via_AzureFiles",
 	"properties": {
 		"activities": [
 			{
