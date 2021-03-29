@@ -1,0 +1,998 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "aia-braze-v2-poc-adf"
+		},
+		"AzureFileSystemPackageStore_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemPackageStore'"
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://aia-braze-v2-poc-akv.vault.azure.net/"
+		},
+		"Currents_SQLServer_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "sqlServer-connString"
+		},
+		"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "synapse-connString"
+		},
+		"adfmetadata_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adfmetadata-connString"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "aiasqlmisvr01.a1e189469806.database.windows.net"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "boor"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/1-DataLake_2_SQLMI_via_SSISDB')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Execute SSIS package - SSISDB",
+						"description": "Data Lake to SQL MI",
+						"type": "ExecuteSSISPackage",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"packageLocation": {
+								"packagePath": "LoadFromDataLake/Azure-LoadingFilesFromDataLake01/Package.dtsx",
+								"type": "SSISDB"
+							},
+							"environmentPath": null,
+							"connectVia": {
+								"referenceName": "SSISAzureIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"loggingLevel": "Basic",
+							"projectConnectionManagers": {},
+							"packageConnectionManagers": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "SSIS-Demo"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-29T12:31:42Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/1_Autoloader_End_To_End')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Run Autoloader To Synapse",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Trigger_Autoloader_To_Synapse",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run Synapse To SQL Server",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run Autoloader To Synapse",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_Copy_Incremental_Synapse_To_SQL",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Braze-Autoloader/0_Root"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-28T20:04:14Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/1_Trigger_Autoloader_To_Synapse')]",
+				"[concat(variables('factoryId'), '/pipelines/2_Copy_Incremental_Synapse_To_SQL')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/1_Trigger_Autoloader_To_Synapse')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get table names",
+						"description": "We replace the '_' with '.' right in the SQL query to align with Databricks.",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"sqlReaderQuery": {
+									"value": "SELECT REPLACE(TableName, '_', '.') AS TableName FROM [dbo].[watermarktable]",
+									"type": "Expression"
+								},
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "watermarktable",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "Run Autoloader - per table",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get table names",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get table names').output.value",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Braze Autoloader - per table",
+									"type": "DatabricksNotebook",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"notebookPath": "/braze-autoloader-poc/1.Landing-To-Bronze/1.autoloader-from-currents-landing",
+										"baseParameters": {
+											"table": {
+												"value": "@item().TableName",
+												"type": "Expression"
+											}
+										}
+									},
+									"linkedServiceName": {
+										"referenceName": "AzureDatabricks",
+										"type": "LinkedServiceReference"
+									}
+								}
+							]
+						}
+					}
+				],
+				"folder": {
+					"name": "Braze-Autoloader/1_Supporting"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-28T20:04:13Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/watermarktable')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/2-DataLake_2_SQLMI_via_AzureFiles')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Execute SSIS package - Package Store",
+						"type": "ExecuteSSISPackage",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"packageLocation": {
+								"type": "PackageStore",
+								"packagePath": "myAzureFilesPackageStore/Azure-LoadingFilesFromDataLake01/Package",
+								"typeProperties": {}
+							},
+							"connectVia": {
+								"referenceName": "SSISAzureIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"projectConnectionManagers": {},
+							"packageConnectionManagers": {
+								"DataLake": {
+									"AccountKey": {
+										"value": {
+											"type": "AzureKeyVaultSecret",
+											"store": {
+												"referenceName": "AzureKeyVault",
+												"type": "LinkedServiceReference"
+											},
+											"secretName": "SSIS-DataLake-AccountKey"
+										}
+									},
+									"AccountName": {
+										"value": "aiasqlinsightsstorage"
+									},
+									"AuthType": {
+										"value": "1"
+									},
+									"ConnectByProxy": {
+										"value": "False"
+									},
+									"ConnectUsingManagedIdentity": {
+										"value": "False"
+									},
+									"ConnectionString": {
+										"value": "ServiceType=AzureBlobFS;AccountName=aiasqlinsightsstorage;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+									},
+									"EndpointSuffix": {
+										"value": "core.windows.net"
+									},
+									"SasToken": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
+									},
+									"ServicePrincipalKey": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
+									},
+									"ServiceType": {
+										"value": "2"
+									},
+									"TargetServerVersion": {
+										"value": "140"
+									},
+									"UseHttps": {
+										"value": "True"
+									}
+								},
+								"currents": {
+									"ConnectByProxy": {
+										"value": "False"
+									},
+									"ConnectUsingManagedIdentity": {
+										"value": "False"
+									},
+									"ConnectionString": {
+										"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
+									},
+									"InitialCatalog": {
+										"value": "currents"
+									},
+									"Password": {
+										"value": {
+											"type": "AzureKeyVaultSecret",
+											"store": {
+												"referenceName": "AzureKeyVault",
+												"type": "LinkedServiceReference"
+											},
+											"secretName": "SSIS-currents-Password"
+										}
+									},
+									"RetainSameConnection": {
+										"value": "False"
+									},
+									"ServerName": {
+										"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
+									},
+									"UserName": {
+										"value": "boor"
+									}
+								}
+							}
+						}
+					}
+				],
+				"folder": {
+					"name": "SSIS-Demo"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-29T12:33:41Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/2_Copy_Incremental_Synapse_To_SQL')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get last load watermark - all tables",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "watermarktable",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "Copy incremental data - per table",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get last load watermark - all tables",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get last load watermark - all tables').output.value",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Copy incremental data from Synapse to SQL Server",
+									"description": "We will get data > the last load watermark, but <= the max latest watermark (in case there are loads being done as we speak - those will also come in). Specifying this last range allows us to be more precise.",
+									"type": "Copy",
+									"dependsOn": [
+										{
+											"activity": "Get latest watermark",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "SqlDWSource",
+											"sqlReaderQuery": {
+												"value": "SELECT * FROM @{item().Tablename} WHERE time_inserted > '@{item().WatermarkValue}' and time_inserted <= '@{activity('Get latest watermark').output.firstRow.NewWatermarkvalue}'",
+												"type": "Expression"
+											},
+											"queryTimeout": "02:00:00",
+											"partitionOption": "None"
+										},
+										"sink": {
+											"type": "SqlServerSink"
+										},
+										"enableStaging": true,
+										"stagingSettings": {
+											"linkedServiceName": {
+												"referenceName": "Synapse_AzureBlobStorage",
+												"type": "LinkedServiceReference"
+											},
+											"path": "adf-staging"
+										},
+										"translator": {
+											"type": "TabularTranslator",
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "Currents_Synapse_Tables",
+											"type": "DatasetReference",
+											"parameters": {
+												"table": {
+													"value": "@item().TableName",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "Currents_SQLServer_Tables",
+											"type": "DatasetReference",
+											"parameters": {
+												"table": {
+													"value": "@item().TableName",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								},
+								{
+									"name": "Update Watermark",
+									"type": "SqlServerStoredProcedure",
+									"dependsOn": [
+										{
+											"activity": "Copy incremental data from Synapse to SQL Server",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"storedProcedureName": "[[dbo].[usp_write_watermark]",
+										"storedProcedureParameters": {
+											"LastModifiedtime": {
+												"value": {
+													"value": "@activity('Get latest watermark').output.firstRow.NewWatermarkvalue",
+													"type": "Expression"
+												},
+												"type": "String"
+											},
+											"TableName": {
+												"value": {
+													"value": "@item().TableName",
+													"type": "Expression"
+												},
+												"type": "String"
+											}
+										}
+									},
+									"linkedServiceName": {
+										"referenceName": "adfmetadata",
+										"type": "LinkedServiceReference"
+									}
+								},
+								{
+									"name": "Get latest watermark",
+									"type": "Lookup",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "SqlDWSource",
+											"sqlReaderQuery": {
+												"value": "select MAX(time_inserted) as NewWatermarkvalue from @{item().TableName}",
+												"type": "Expression"
+											},
+											"queryTimeout": "02:00:00",
+											"partitionOption": "None"
+										},
+										"dataset": {
+											"referenceName": "Currents_Synapse_Tables",
+											"type": "DatasetReference",
+											"parameters": {
+												"table": {
+													"value": "@item().TableName",
+													"type": "Expression"
+												}
+											}
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"folder": {
+					"name": "Braze-Autoloader/1_Supporting"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-28T20:04:13Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/watermarktable')]",
+				"[concat(variables('factoryId'), '/datasets/Currents_Synapse_Tables')]",
+				"[concat(variables('factoryId'), '/datasets/Currents_SQLServer_Tables')]",
+				"[concat(variables('factoryId'), '/linkedServices/adfmetadata')]",
+				"[concat(variables('factoryId'), '/linkedServices/Synapse_AzureBlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/3-DataLake_2_SQLMI_via_EmbeddedPackage')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Execute SSIS package - Embedded Package",
+						"type": "ExecuteSSISPackage",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"packageLocation": {
+								"type": "InlinePackage",
+								"typeProperties": {
+									"packageName": "Package.dtsx",
+									"packageContent": "VER001_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",
+									"packageLastModifiedDate": "2021-03-29T08:32:49.250Z UTC-4:00"
+								}
+							},
+							"connectVia": {
+								"referenceName": "SSISAzureIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"projectConnectionManagers": {},
+							"packageConnectionManagers": {
+								"DataLake": {
+									"AccountKey": {
+										"value": {
+											"type": "AzureKeyVaultSecret",
+											"store": {
+												"referenceName": "AzureKeyVault",
+												"type": "LinkedServiceReference"
+											},
+											"secretName": "SSIS-DataLake-AccountKey"
+										}
+									},
+									"AccountName": {
+										"value": "aiasqlinsightsstorage"
+									},
+									"AuthType": {
+										"value": "1"
+									},
+									"ConnectByProxy": {
+										"value": "False"
+									},
+									"ConnectUsingManagedIdentity": {
+										"value": "False"
+									},
+									"ConnectionString": {
+										"value": "ServiceType=AzureBlobFS;AccountName=aiasqlinsightsstorage;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+									},
+									"EndpointSuffix": {
+										"value": "core.windows.net"
+									},
+									"SasToken": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
+									},
+									"ServicePrincipalKey": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
+									},
+									"ServiceType": {
+										"value": "2"
+									},
+									"TargetServerVersion": {
+										"value": "140"
+									},
+									"UseHttps": {
+										"value": "True"
+									}
+								},
+								"currents": {
+									"ConnectByProxy": {
+										"value": "False"
+									},
+									"ConnectUsingManagedIdentity": {
+										"value": "False"
+									},
+									"ConnectionString": {
+										"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
+									},
+									"InitialCatalog": {
+										"value": "currents"
+									},
+									"Password": {
+										"value": {
+											"type": "AzureKeyVaultSecret",
+											"store": {
+												"referenceName": "AzureKeyVault",
+												"type": "LinkedServiceReference"
+											},
+											"secretName": "SSIS-currents-Password"
+										}
+									},
+									"RetainSameConnection": {
+										"value": "False"
+									},
+									"ServerName": {
+										"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
+									},
+									"UserName": {
+										"value": "boor"
+									}
+								}
+							}
+						}
+					}
+				],
+				"folder": {
+					"name": "SSIS-Demo"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-03-29T12:55:47Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Currents_SQLServer_Tables')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Currents_SQLServer",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"table": {
+						"type": "string",
+						"defaultValue": "users_messages_pushnotification_Bounce"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": {
+						"value": "@dataset().table",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Currents_SQLServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Currents_Synapse_Tables')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Currents_Synapse",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"table": {
+						"type": "string",
+						"defaultValue": "users_messages_pushnotification_Bounce"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": {
+						"value": "@dataset().table",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Currents_Synapse')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/watermarktable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adfmetadata",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "watermarktable"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/adfmetadata')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-8059003163767180.0.azuredatabricks.net",
+					"accessToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "adb-token"
+					},
+					"existingClusterId": "1116-225432-pecks336"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFileSystemPackageStore')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFileStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureFileSystemPackageStore_connectionString')]",
+					"fileShare": "ssispackagestore"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Currents_SQLServer')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('Currents_SQLServer_properties_typeProperties_connectionString_secretName')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "CurrentsOnPremIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/CurrentsOnPremIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Currents_Synapse')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('Currents_Synapse_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Synapse_AzureBlobStorage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Blob Storage account related to storing Synapse related metadata",
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('Synapse_AzureBlobStorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adfmetadata')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('adfmetadata_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CurrentsOnPremIntegrationRuntime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "East US",
+						"nodeSize": "Standard_D1_v2",
+						"numberOfNodes": 1,
+						"maxParallelExecutionsPerNode": 1,
+						"vNetProperties": {
+							"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiatelegrafvnet",
+							"subnet": "ADF_IR_subnet"
+						}
+					},
+					"ssisProperties": {
+						"catalogInfo": {
+							"catalogServerEndpoint": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]",
+							"catalogAdminUserName": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]",
+							"catalogAdminPassword": {
+								"type": "SecureString",
+								"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+							},
+							"catalogPricingTier": null
+						},
+						"edition": "Standard",
+						"licenseType": "BasePrice",
+						"packageStores": [
+							{
+								"name": "myAzureFilesPackageStore",
+								"packageStoreLinkedService": {
+									"referenceName": "AzureFileSystemPackageStore",
+									"type": "LinkedServiceReference"
+								}
+							}
+						]
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]"
+			]
+		}
+	]
+}

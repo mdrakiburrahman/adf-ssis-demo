@@ -1,0 +1,104 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "aia-braze-v2-poc-adf"
+		},
+		"AzureFileSystemPackageStore_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemPackageStore'"
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://aia-braze-v2-poc-akv.vault.azure.net/"
+		},
+		"Currents_SQLServer_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "sqlServer-connString"
+		},
+		"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "synapse-connString"
+		},
+		"adfmetadata_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adfmetadata-connString"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"type": "string",
+			"defaultValue": "aiasqlmisvr01.a1e189469806.database.windows.net"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"type": "string",
+			"defaultValue": "boor"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"type": "secureString"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "aia-braze-v2-poc-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureFileSystemPackageStore_connectionString": {
+						"value": "[parameters('AzureFileSystemPackageStore_connectionString')]"
+					},
+					"Synapse_AzureBlobStorage_connectionString": {
+						"value": "[parameters('Synapse_AzureBlobStorage_connectionString')]"
+					},
+					"AzureKeyVault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"Currents_SQLServer_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Currents_SQLServer_properties_typeProperties_connectionString_secretName')]"
+					},
+					"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Currents_Synapse_properties_typeProperties_connectionString_secretName')]"
+					},
+					"adfmetadata_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('adfmetadata_properties_typeProperties_connectionString_secretName')]"
+					},
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
+					},
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
+					},
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "aia-braze-v2-poc-adf"
+		},
+		"AzureFileSystemPackageStore_connectionString": {
+			"value": ""
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://aia-braze-v2-poc-akv.vault.azure.net/"
+		},
+		"Currents_SQLServer_properties_typeProperties_connectionString_secretName": {
+			"value": "sqlServer-connString"
+		},
+		"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
+			"value": "synapse-connString"
+		},
+		"adfmetadata_properties_typeProperties_connectionString_secretName": {
+			"value": "adfmetadata-connString"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+			"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+			"value": "boor"
+		},
+		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+			"value": ""
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
