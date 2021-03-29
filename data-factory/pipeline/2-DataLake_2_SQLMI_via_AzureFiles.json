@@ -23,6 +23,7 @@
 						"referenceName": "SSISAzureIntegrationRuntime",
 						"type": "IntegrationRuntimeReference"
 					},
+					"loggingLevel": "Verbose",
 					"packageConnectionManagers": {
 						"DataLake": {
 							"AccountKey": {
@@ -106,6 +107,20 @@
 							},
 							"UserName": {
 								"value": "boor"
+							}
+						}
+					},
+					"logLocation": {
+						"logPath": "\\\\aiasqlinsightsstorage.file.core.windows.net\\ssislogs",
+						"type": "File",
+						"typeProperties": {
+							"accessCredential": {
+								"domain": "Azure",
+								"userName": "aiasqlinsightsstorage",
+								"password": {
+									"type": "SecureString",
+									"value": "**********"
+								}
 							}
 						}
 					}
