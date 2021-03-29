@@ -37,6 +37,21 @@
 							},
 							"AccountName": {
 								"value": "aiasqlinsightsstorage"
+							},
+							"AuthType": {
+								"value": "1"
+							},
+							"ConnectByProxy": {
+								"value": "False"
+							},
+							"ConnectUsingManagedIdentity": {
+								"value": "False"
+							},
+							"ConnectionString": {
+								"value": "ServiceType=AzureBlobFS;AccountName=aiasqlinsightsstorage;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+							},
+							"EndpointSuffix": {
+								"value": "core.windows.net"
 							}
 						}
 					}
