@@ -74,6 +74,18 @@
 							},
 							"UseHttps": {
 								"value": "True"
+							},
+							"ServicePrincipalId": {
+								"value": {
+									"type": "SecureString",
+									"value": "**********"
+								}
+							},
+							"TenantId": {
+								"value": {
+									"type": "SecureString",
+									"value": "**********"
+								}
 							}
 						},
 						"currents": {
