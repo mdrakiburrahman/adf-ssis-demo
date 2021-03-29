@@ -8,10 +8,10 @@
 		"AzureFileSystemPackageStore_connectionString": {
 			"value": ""
 		},
-		"Synapse_AzureBlobStorage_connectionString": {
+		"AzureFileSystemSSISLogs_connectionString": {
 			"value": ""
 		},
-		"AzureFileSystemSSISLogs_connectionString": {
+		"Synapse_AzureBlobStorage_connectionString": {
 			"value": ""
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {

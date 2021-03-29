@@ -11,13 +11,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemPackageStore'"
 		},
-		"Synapse_AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
-		},
 		"AzureFileSystemSSISLogs_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemSSISLogs'"
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -66,6 +66,20 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureFileSystemSSISLogs')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFileStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureFileSystemSSISLogs_connectionString')]",
+					"fileShare": "ssislogs"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureKeyVault')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -99,20 +113,6 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureFileSystemSSISLogs')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureFileStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureFileSystemSSISLogs_connectionString')]",
-					"fileShare": "ssislogs"
-				}
 			},
 			"dependsOn": []
 		},
@@ -381,6 +381,18 @@
 									},
 									"UseHttps": {
 										"value": "True"
+									},
+									"ServicePrincipalId": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
+									},
+									"TenantId": {
+										"value": {
+											"type": "SecureString",
+											"value": "**********"
+										}
 									}
 								},
 								"currents": {
@@ -426,7 +438,7 @@
 										"userName": "aiasqlinsightsstorage",
 										"password": {
 											"type": "SecureString",
-											"value": "18HRF2XM4Olhzq2z74cg5pXOwxiOIx+hc1DCa2j5qDRTjw0HE/zC5zAv9D8d/0m7X26XGHk2gakh0jxS6KzxFw=="
+											"value": "**********"
 										}
 									}
 								}
