@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
 		},
+		"AzureFileSystemSSISLogs_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemSSISLogs'"
+		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://aia-braze-v2-poc-akv.vault.azure.net/"
@@ -269,6 +273,7 @@
 								"referenceName": "SSISAzureIntegrationRuntime",
 								"type": "IntegrationRuntimeReference"
 							},
+							"loggingLevel": "Verbose",
 							"projectConnectionManagers": {},
 							"packageConnectionManagers": {
 								"DataLake": {
@@ -353,6 +358,20 @@
 									},
 									"UserName": {
 										"value": "boor"
+									}
+								}
+							},
+							"logLocation": {
+								"logPath": "\\\\aiasqlinsightsstorage.file.core.windows.net\\ssislogs",
+								"type": "File",
+								"typeProperties": {
+									"accessCredential": {
+										"domain": "Azure",
+										"userName": "aiasqlinsightsstorage",
+										"password": {
+											"type": "SecureString",
+											"value": "18HRF2XM4Olhzq2z74cg5pXOwxiOIx+hc1DCa2j5qDRTjw0HE/zC5zAv9D8d/0m7X26XGHk2gakh0jxS6KzxFw=="
+										}
 									}
 								}
 							}
@@ -993,6 +1012,20 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFileSystemSSISLogs')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFileStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureFileSystemSSISLogs_connectionString')]",
+					"fileShare": "ssislogs"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

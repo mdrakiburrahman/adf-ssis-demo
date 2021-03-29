@@ -11,6 +11,9 @@
 		"Synapse_AzureBlobStorage_connectionString": {
 			"value": ""
 		},
+		"AzureFileSystemSSISLogs_connectionString": {
+			"value": ""
+		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"value": "https://aia-braze-v2-poc-akv.vault.azure.net/"
 		},
