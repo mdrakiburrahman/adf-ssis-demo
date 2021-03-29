@@ -32,6 +32,13 @@
 							"referenceName": "AzureFileSystemPackageStore",
 							"type": "LinkedServiceReference"
 						}
+					},
+					{
+						"name": "myFileSystemPackageStore",
+						"packageStoreLinkedService": {
+							"referenceName": "FileSystemPackageStore",
+							"type": "LinkedServiceReference"
+						}
 					}
 				]
 			}
