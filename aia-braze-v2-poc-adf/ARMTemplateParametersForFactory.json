@@ -11,6 +11,9 @@
 		"AzureFileSystemSSISLogs_connectionString": {
 			"value": ""
 		},
+		"FileSystemPackageStore_password": {
+			"value": ""
+		},
 		"Synapse_AzureBlobStorage_connectionString": {
 			"value": ""
 		},
@@ -22,6 +25,12 @@
 		},
 		"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
 			"value": "synapse-connString"
+		},
+		"FileSystemPackageStore_properties_typeProperties_host": {
+			"value": "\\\\aiasqlinsightsstorage.file.core.windows.net\\ssispackagestore"
+		},
+		"FileSystemPackageStore_properties_typeProperties_userId": {
+			"value": "Azure\\aiasqlinsightsstorage"
 		},
 		"adfmetadata_properties_typeProperties_connectionString_secretName": {
 			"value": "adfmetadata-connString"

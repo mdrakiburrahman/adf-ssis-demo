@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemSSISLogs'"
 		},
+		"FileSystemPackageStore_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileSystemPackageStore'"
+		},
 		"Synapse_AzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
@@ -30,6 +34,14 @@
 		"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "synapse-connString"
+		},
+		"FileSystemPackageStore_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\aiasqlinsightsstorage.file.core.windows.net\\ssispackagestore"
+		},
+		"FileSystemPackageStore_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Azure\\aiasqlinsightsstorage"
 		},
 		"adfmetadata_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
@@ -79,11 +91,20 @@
 					"AzureFileSystemSSISLogs_connectionString": {
 						"value": "[parameters('AzureFileSystemSSISLogs_connectionString')]"
 					},
+					"FileSystemPackageStore_password": {
+						"value": "[parameters('FileSystemPackageStore_password')]"
+					},
 					"Synapse_AzureBlobStorage_connectionString": {
 						"value": "[parameters('Synapse_AzureBlobStorage_connectionString')]"
 					},
 					"AzureKeyVault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"FileSystemPackageStore_properties_typeProperties_host": {
+						"value": "[parameters('FileSystemPackageStore_properties_typeProperties_host')]"
+					},
+					"FileSystemPackageStore_properties_typeProperties_userId": {
+						"value": "[parameters('FileSystemPackageStore_properties_typeProperties_userId')]"
 					},
 					"Currents_SQLServer_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Currents_SQLServer_properties_typeProperties_connectionString_secretName')]"
@@ -106,6 +127,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "aia-braze-v2-poc-adf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'aia-braze-v2-poc-adf_ArmTemplate_0')]"
+			]
 		}
 	]
 }
