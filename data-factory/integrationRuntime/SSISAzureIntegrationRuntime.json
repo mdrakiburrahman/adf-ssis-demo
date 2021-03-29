@@ -1,0 +1,40 @@
+{
+	"name": "SSISAzureIntegrationRuntime",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "East US",
+				"nodeSize": "Standard_D1_v2",
+				"numberOfNodes": 1,
+				"maxParallelExecutionsPerNode": 1,
+				"vNetProperties": {
+					"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiatelegrafvnet",
+					"subnet": "ADF_IR_subnet"
+				}
+			},
+			"ssisProperties": {
+				"catalogInfo": {
+					"catalogServerEndpoint": "aiasqlmisvr01.a1e189469806.database.windows.net",
+					"catalogAdminUserName": "boor",
+					"catalogAdminPassword": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"catalogPricingTier": null
+				},
+				"edition": "Standard",
+				"licenseType": "BasePrice",
+				"packageStores": [
+					{
+						"name": "myAzureFilesPackageStore",
+						"packageStoreLinkedService": {
+							"referenceName": "AzureFileSystemPackageStore",
+							"type": "LinkedServiceReference"
+						}
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"name": "CurrentsOnPremIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

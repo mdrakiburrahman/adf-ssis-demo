@@ -1,0 +1,22 @@
+{
+	"name": "Currents_SQLServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlServer-connString"
+			}
+		},
+		"connectVia": {
+			"referenceName": "CurrentsOnPremIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
