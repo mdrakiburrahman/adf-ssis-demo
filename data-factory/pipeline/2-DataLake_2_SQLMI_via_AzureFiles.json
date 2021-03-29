@@ -22,6 +22,20 @@
 					"connectVia": {
 						"referenceName": "SSISAzureIntegrationRuntime",
 						"type": "IntegrationRuntimeReference"
+					},
+					"packageConnectionManagers": {
+						"DataLake": {
+							"AccountKey": {
+								"value": {
+									"type": "AzureKeyVaultSecret",
+									"store": {
+										"referenceName": "AzureKeyVault",
+										"type": "LinkedServiceReference"
+									},
+									"secretName": "SSIS-DataLake-AccountKey"
+								}
+							}
+						}
 					}
 				}
 			}
