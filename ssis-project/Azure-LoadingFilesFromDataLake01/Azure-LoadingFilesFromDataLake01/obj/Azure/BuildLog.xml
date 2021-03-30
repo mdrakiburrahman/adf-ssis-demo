@@ -2,14 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Azure-LoadingFilesFromDataLake01</Name>
-    <LastWriteTime>2021-03-30T12:41:36.14552Z</LastWriteTime>
-    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    <LastWriteTime>2021-03-30T14:03:11.6470897Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+    <Salt>Er6WOObH</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAD1sH8YvltdlS2h+ylWtgIOWF3JTl8iRZSRGHfLW4N4fgAAAAAOgAAAAAIAACAAAADvplHi6FimropjHdJIcLhn9jUHCSElXqWsTho1dJO1njAAAAClscdxEgG4osI/rELyY7DKMuA85eqYz3i64b9EMSnvN26RQjydoDCS6E505Vwi+2tAAAAAsCfviwqErOqgrFW3Wxi4/jpbinGCoKWcjrwIfZA+3L6aVtGCEUQkbu6clLuncVqVJbGLScI4eZDMaKOZczAi2g==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2021-03-30T12:41:35.7135179Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+      <LastWriteTime>2021-03-30T14:01:31.8143435Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>RdIdVM1s</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAD2X0rt/4MuosuLwauur5OepgoeUJXZnql+MJJ7nDDE+wAAAAAOgAAAAAIAACAAAAC8bfPGq9wzrw8FX5+WPsdNZl/9BWaIyFEjGzXnTWKK2zAAAADauyrq5lV0EkUi9dtMIhgsLSqVz/r4feK5FzNrQBTSEog05lp/uEFk6XE0PEbHf89AAAAAo8L3uG4En1nahYG0G+4lafpdJKgzopXrnhmAIDkT4N/b/lgqOOiybiHDWZxfUDOhHtwQHL6tc5waLKsUsk1zVg==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>

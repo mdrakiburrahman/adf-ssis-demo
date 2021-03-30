@@ -12,11 +12,11 @@
   <DataSourceViews />
   <DeploymentModelSpecificContent>
     <Manifest>
-      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithPassword" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{a521cd95-046c-445f-b204-5ed2a150b0cf}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">Azure-LoadingFilesFromDataLake01</SSIS:Property>
-          <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionMajor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionComments">
@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">aiadsvm01</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAACa225nRN06TwOH0B+zIkbRrIBvyzUsRHvuTyMiQq2pAAAAAAAOgAAAAAIAACAAAABjCC4l+zNHgTcrXDMCueaE1Hqm0kS7HpkfdtAK+jvSG5AAAAANzh6wDnm/sQDF0xsPf956/qeLRxuCHq1l2ErnGCiMiBqirG5K6Lhz5CFxygycFhrZa3Si42+rn0KqDzTxrPS8ol1XhnlJkEQJDJ0UbvW5E4XyUOFSNGnVX0ES6uK7moltHqSfNf0cHsVjjQg1QOP2EfU685Ldj/RkX/ZldDbk2fDxAgQd2BSiW92222mT61FAAAAA+fg+MQQ63XttKmA7S+PXF/2tHfMYSrd7yW9yb4xuG+pOnOOialV1wRKzHBWf7LHKdPw3HmeOSGjbWnLWbDKfDA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="pEgnsbh1xR4=" SSIS:IV="kfXI2ySeUyJVIBBIeocD5g==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">/am0q7EawX0AMe9rQ5aSbu3l4hdaBKDJ9O3O0+KOzpifqe/w8SJRPRseorKkSXZaQ62Ja2KkEpE5YcVt0EWCgQ/APblGvYNr5PnruktsQJWRczPV5cfKDvFd+CB6ccYNhiWDkt1irlh+mmllq30z8wcbWRXsHoRCgv6QsCZch3b630bpbTmT3EFW8d/Yrvj4</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,14 +42,14 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">16</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{459E1EC3-6658-420D-9915-67CAC2C6845D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B3E5713A-4536-42EE-93B9-5134D0979836}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="CM.currents_ODBC.ConnectByProxy">

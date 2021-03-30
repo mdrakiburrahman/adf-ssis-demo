@@ -11,8 +11,9 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{459E1EC3-6658-420D-9915-67CAC2C6845D}">
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{B3E5713A-4536-42EE-93B9-5134D0979836}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,10 +25,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADWQL2lWHRSJYKAK1v3xERHNNoQMTD/nJ5znjotjnM4TAAAAAAOgAAAAAIAACAAAAAKbembVKbH92TBNlipmyglPRDaFiQYSfiKXt5koxZGrzAAAACzUQUnEQJfkeyAMUMCW9zGCwkQ4y//AZH5lnPXHySRIyXUcBsz5CixKcFC/jz7f/tAAAAASgLsunAqWAaS6MaR11dHlFr9xiK8NZTD2zkAAT8ywqWlH914fxhWNFRFrQLbWHVDnKkViMhDSL9g8Na91D+hpQ</DTS:Password>
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="csXqN3Xxz3I="
+            IV="yPlEaiYGoxmXJ2FEhR86GQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>yPlEaiYGoxmXJ2FEhR86GXGEWv9hqilRNOVd1KX4epr06ttuusIQj9w/S1h5zsuQgDo5qNJUYMEriVcjW+7DM1DaMGFaViRbEbbN/mV3FoYPolY7H5q8d9vqA0fWjJDZod6j8mXLTxf02x9PzLV/yoppRQHzdytoFUGJLHg0oj8lUovAcB19XkXlOVlXTFfk</CipherValue>
+            </CipherData>
+          </EncryptedData>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -39,10 +46,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC8XRgOFouUhPHb9WAJcPCmH839AcyNnZLjvhfVxJeI+gAAAAAOgAAAAAIAACAAAAB14YBweggtkw9v05hCgffYv1+UPPTgeOtbSm3sMzD3VjAAAABvsa1VFcPycFQ1n/Bunpgb89O+TYQLrzMIW6FUBLLt4ujsFBB65LeQJn28DEwiNeBAAAAATc9fTQaZfnJ4fWAsjx7GDSZZxQkm08iWCm+LKmgYEMvEaaGl0AajyId9LzvMJ2iQdIGThd0zgcVIVs1GuMj2HA</DTS:Password>
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="xtH6Hq2+tDc="
+            IV="5CYyZ9sg6Kz8zFdJd0ilKw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>5CYyZ9sg6Kz8zFdJd0ilKwvQmqpQRCB6Ky+14VnqWUa5zcwkXEMizF9vNyvED55OlLODD6bcXA8pJosUMs0VZFIhfJCC7sFXgsS30bpCngUsITtUCSGXOr3VDrdtRutS4iRri8yLyLAQbxOkceC+46NCCh1k0TH82le5PVh/+m6N+zDiv88mvFYQ5aMuHrnF</CipherValue>
+            </CipherData>
+          </EncryptedData>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -55,9 +68,16 @@
         <AzureStorageConnectionManager
           ConnectionString="ServiceType=AzureBlobFS;AccountName=aiasqlinsightsstorage;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
           ConnectByProxy="False">
-          <AccountKey
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAARtfGJIs8/2uxZbNJ33LBpVTwIj3hrEi8g9zhzB3lSKAAAAAAOgAAAAAIAACAAAAAIgligTUBEXWaeit4hTLd06h5CEpZiXYJPT+Iel/miFMAAAADTrWbjY3LwU1GMbCwGt7LGjxX1kwtFsNmS6sxhwjBIaPUqxJ7hGDTsyUusyHe77ZtB0wpq9ctQLoC/XVDPxkoxFaHpzRdM4iKX8HRZBOcQIn8ANGe4+khTSpS1gsNea5X+xWLcktBjnW6IWaoHUEERmrH/H1gV3u9GSoysVl5cAtl0Ooi5e4IUALGk5QUgw5ghof/5XC33Wf+Xis4EWrkAtHz/ajep8RyQ412hP1bVGTxc4vn+PoemVzRoBEr1JyJAAAAAQvSEBN5SyiA77YL85eMHqYzv8GjKhh3gCDNwYfTPoZxQWseVPkkjm+YIQ+PacZMamBBcU066sT1GkdMjd6R56A</AccountKey>
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Rshop7W8NWU="
+            IV="yBlj8s7M8Uxo+t7wxDnagQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>yBlj8s7M8Uxo+t7wxDnagWLxuHTpI2dyiDjac9K6G8lsLGkqFLm6zX8DF/AArftrMUL0qiJAebTiqbRco/V9mqeGo6bAfaD0hVXe76rnq1M9h7I9urumAyZ+naH4p0Cjlu2ir22Rsnpp/x/+j8vUorblf6AdlvYTynP9OEHa32GstNtlluy0JjHqy0a4X/9b</CipherValue>
+            </CipherData>
+          </EncryptedData>
         </AzureStorageConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
