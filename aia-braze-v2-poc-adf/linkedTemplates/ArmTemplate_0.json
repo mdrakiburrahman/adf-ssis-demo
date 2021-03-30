@@ -612,6 +612,17 @@
 							"connectVia": {
 								"referenceName": "SSISAzureIntegrationRuntime",
 								"type": "IntegrationRuntimeReference"
+							},
+							"projectConnectionManagers": {},
+							"packageConnectionManagers": {
+								"DataLake": {
+									"AccountKey": {
+										"value": {
+											"type": "SecureString",
+											"value": "gibberish"
+										}
+									}
+								}
 							}
 						}
 					}
