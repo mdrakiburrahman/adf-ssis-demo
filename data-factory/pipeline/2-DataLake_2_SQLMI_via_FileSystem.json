@@ -17,7 +17,13 @@
 				"typeProperties": {
 					"packageLocation": {
 						"type": "PackageStore",
-						"packagePath": "myFileSystemPackageStore/Azure-LoadingFilesFromDataLake01\\Package"
+						"packagePath": "myFileSystemPackageStore/Azure-LoadingFilesFromDataLake01\\Package",
+						"typeProperties": {
+							"packagePassword": {
+								"type": "SecureString",
+								"value": "**********"
+							}
+						}
 					},
 					"connectVia": {
 						"referenceName": "SSISAzureIntegrationRuntime",
