@@ -28,7 +28,7 @@
 						"type": "IntegrationRuntimeReference"
 					},
 					"packageConnectionManagers": {
-						"DataLake": {
+						"DataFake": {
 							"AccountKey": {
 								"value": {
 									"type": "SecureString",
