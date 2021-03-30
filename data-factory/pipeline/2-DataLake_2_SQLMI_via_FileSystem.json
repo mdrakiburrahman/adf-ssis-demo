@@ -85,9 +85,6 @@
 							"ConnectByProxy": {
 								"value": "False"
 							},
-							"ConnectUsingManagedIdentity": {
-								"value": "False"
-							},
 							"ConnectionString": {
 								"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
 							},
