@@ -430,7 +430,7 @@
 										"value": "False"
 									},
 									"ConnectionString": {
-										"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
+										"value": "server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;"
 									},
 									"InitialCatalog": {
 										"value": "currents"
@@ -449,7 +449,7 @@
 										"value": "False"
 									},
 									"ServerName": {
-										"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
+										"value": "tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433"
 									},
 									"UserName": {
 										"value": "boor"
