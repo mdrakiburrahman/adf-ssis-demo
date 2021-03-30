@@ -11,23 +11,38 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{BED50FD5-D62E-472C-B53E-26DF41AC9C99}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{459E1EC3-6658-420D-9915-67CAC2C6845D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[currents]"
+      DTS:refId="Package.ConnectionManagers[currents_ODBC]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{56156593-5587-4247-B8F3-01B1F1DD06FA}"
+      DTS:ObjectName="currents_ODBC">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADWQL2lWHRSJYKAK1v3xERHNNoQMTD/nJ5znjotjnM4TAAAAAAOgAAAAAIAACAAAAAKbembVKbH92TBNlipmyglPRDaFiQYSfiKXt5koxZGrzAAAACzUQUnEQJfkeyAMUMCW9zGCwkQ4y//AZH5lnPXHySRIyXUcBsz5CixKcFC/jz7f/tAAAAASgLsunAqWAaS6MaR11dHlFr9xiK8NZTD2zkAAT8ywqWlH914fxhWNFRFrQLbWHVDnKkViMhDSL9g8Na91D+hpQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[currents_OLEDB]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{52F93492-CD49-4478-BCD3-4B844ABA25E4}"
-      DTS:ObjectName="currents">
+      DTS:ObjectName="currents_OLEDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABBPazlULt8En7wHOQalxWZuYYEO7k+C4hZ/dNO5KJQFAAAAAAOgAAAAAIAACAAAADgVj4BXwaDOrHxEXNijl41C37DZTh+ON7HmvYGBHQMtDAAAACBYqDQlCWAodt1HYPz5aBG+kNKd5totlfDW2ZWuN6Qzk5EajoHYk1XpQOvisEg7dFAAAAA/IGeaFvxTRbZfDXMsXAkqQjEmAzVQYMYddtZ9+kNU0FKV9HI5EbSUQ5JjTFJrPrwBr601HyPdK7VaNGlIYnPHA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC8XRgOFouUhPHb9WAJcPCmH839AcyNnZLjvhfVxJeI+gAAAAAOgAAAAAIAACAAAAB14YBweggtkw9v05hCgffYv1+UPPTgeOtbSm3sMzD3VjAAAABvsa1VFcPycFQ1n/Bunpgb89O+TYQLrzMIW6FUBLLt4ujsFBB65LeQJn28DEwiNeBAAAAATc9fTQaZfnJ4fWAsjx7GDSZZxQkm08iWCm+LKmgYEMvEaaGl0AajyId9LzvMJ2iQdIGThd0zgcVIVs1GuMj2HA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +57,7 @@
           ConnectByProxy="False">
           <AccountKey
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABRc1h8mMpBa9j2EKxTRxWBtasR0k4Qpr7jzjowsDVipwAAAAAOgAAAAAIAACAAAAAk4JAY41ITz4Q8dPT7SK2XTAwI3zWUYhCC2U1VmpqCK8AAAADB66c3eK7hM5EyEJkA1GKiRgbPE/cGY5bw2qrYglOUi5tzz/0a4y0GX/QAfOfUFRsr37XOX0bwLn8oINcOIiBIN221G9CGo96ubuAvYQHqYzy3G/pjJlt3koB2kHraKYCuzGrKYA4xIxpIePORQVW2LKj5pQlUiTVomFFz03wDRIOtWgPd46FhD+c2/O48zByym0XUnn5yFg8k/9iJrVutIR2vLAINfXhuCDaTtCQEcUVLXuAu7N4epSXmGVWeB31AAAAAeC7T+4qLfbKzjOmoS0isXlHJELm9zMRlAZvPGtcXPvRY/cKeUiBKC+JPKSqi4sJUKp09bbJLgoLruY4lIG4UEw</AccountKey>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAARtfGJIs8/2uxZbNJ33LBpVTwIj3hrEi8g9zhzB3lSKAAAAAAOgAAAAAIAACAAAAAIgligTUBEXWaeit4hTLd06h5CEpZiXYJPT+Iel/miFMAAAADTrWbjY3LwU1GMbCwGt7LGjxX1kwtFsNmS6sxhwjBIaPUqxJ7hGDTsyUusyHe77ZtB0wpq9ctQLoC/XVDPxkoxFaHpzRdM4iKX8HRZBOcQIn8ANGe4+khTSpS1gsNea5X+xWLcktBjnW6IWaoHUEERmrH/H1gV3u9GSoysVl5cAtl0Ooi5e4IUALGk5QUgw5ghof/5XC33Wf+Xis4EWrkAtHz/ajep8RyQ412hP1bVGTxc4vn+PoemVzRoBEr1JyJAAAAAQvSEBN5SyiA77YL85eMHqYzv8GjKhh3gCDNwYfTPoZxQWseVPkkjm+YIQ+PacZMamBBcU066sT1GkdMjd6R56A</AccountKey>
         </AzureStorageConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -103,13 +118,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
           DTS:DTSID="{3D18F23A-DED0-4993-9CA8-09EA56D4EAFB}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Data Flow Task"
+          DTS:ObjectName="Data Flow Task - ADLS to SQL MI OLE DB"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:PropertyExpression
@@ -121,7 +136,7 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName"
+                  refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName"
                   componentClassID="Microsoft.DerivedColumn"
                   contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
                   description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -129,7 +144,7 @@
                   usesDispositions="true">
                   <inputs>
                     <input
-                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Inputs[Derived Column Input]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
                       <externalMetadataColumns />
@@ -137,19 +152,19 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Output]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Output]"
                       description="Default Output of the Derived Column Transformation"
                       exclusionGroup="1"
                       name="Derived Column Output"
-                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Inputs[Derived Column Input]">
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Inputs[Derived Column Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]"
                           dataType="wstr"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
                           length="43"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]"
                           name="SourceFileName"
                           truncationRowDisposition="FailComponent">
                           <properties>
@@ -170,23 +185,23 @@
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Error Output]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Error Output]"
                       description="Error Output of the Derived Column Transformation"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Derived Column Error Output"
-                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Inputs[Derived Column Input]">
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Inputs[Derived Column Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -195,7 +210,7 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source"
+                  refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="MicrosoftContactInfo"
                   description="Extracts data from a file on various supported storage services, such as Azure Blob Storage and Azure Data Lake Storage Gen2. The supported file formats are: Text, Avro, Orc, and Parquet."
@@ -277,7 +292,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Connections[ConnectionManager]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Connections[ConnectionManager]"
                       connectionManagerID="Package.ConnectionManagers[DataLake]"
                       connectionManagerRefId="Package.ConnectionManagers[DataLake]"
                       description="Connection manager name"
@@ -285,408 +300,408 @@
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output]"
                       name="Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[id]"
                           name="id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[user_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[user_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[user_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[user_id]"
                           name="user_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[external_user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[external_user_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[external_user_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[external_user_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[external_user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[external_user_id]"
                           name="external_user_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[app_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[app_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[app_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[app_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[app_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[app_id]"
                           name="app_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[time]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[time]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time]"
                           name="time"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[timezone]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[timezone]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[timezone]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[timezone]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[timezone]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[timezone]"
                           name="timezone"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[platform]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[platform]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[platform]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[platform]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[platform]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[platform]"
                           name="platform"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[campaign_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[campaign_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_id]"
                           name="campaign_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_name]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[campaign_name]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[campaign_name]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_name]"
                           name="campaign_name"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[message_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[message_variation_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[message_variation_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[message_variation_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[message_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[message_variation_id]"
                           name="message_variation_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_id]"
                           name="canvas_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_name]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_name]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_name]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_name]"
                           name="canvas_name"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_variation_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_variation_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]"
                           name="canvas_variation_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_step_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_step_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_step_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_step_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_step_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_step_id]"
                           name="canvas_step_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[send_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[send_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[send_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[send_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[send_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[send_id]"
                           name="send_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[dispatch_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[dispatch_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[dispatch_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[dispatch_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[dispatch_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[dispatch_id]"
                           name="dispatch_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[device_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[device_id]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[device_id]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[device_id]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[device_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[device_id]"
                           name="device_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time_inserted]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time_inserted]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[time_inserted]"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[time_inserted]"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time_inserted]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time_inserted]"
                           name="time_inserted"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[id]"
                           dataType="wstr"
                           length="100"
                           name="id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[user_id]"
                           dataType="wstr"
                           length="100"
                           name="user_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[external_user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[external_user_id]"
                           dataType="wstr"
                           length="100"
                           name="external_user_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[app_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[app_id]"
                           dataType="wstr"
                           length="100"
                           name="app_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[time]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[time]"
                           dataType="wstr"
                           length="100"
                           name="time" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[timezone]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[timezone]"
                           dataType="wstr"
                           length="100"
                           name="timezone" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[platform]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[platform]"
                           dataType="wstr"
                           length="100"
                           name="platform" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[campaign_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[campaign_id]"
                           dataType="wstr"
                           length="100"
                           name="campaign_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[campaign_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[campaign_name]"
                           dataType="wstr"
                           length="100"
                           name="campaign_name" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[message_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[message_variation_id]"
                           dataType="wstr"
                           length="100"
                           name="message_variation_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_id]"
                           dataType="wstr"
                           length="100"
                           name="canvas_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_name]"
                           dataType="wstr"
                           length="100"
                           name="canvas_name" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_variation_id]"
                           dataType="wstr"
                           length="100"
                           name="canvas_variation_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[canvas_step_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[canvas_step_id]"
                           dataType="wstr"
                           length="100"
                           name="canvas_step_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[send_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[send_id]"
                           dataType="wstr"
                           length="100"
                           name="send_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[dispatch_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[dispatch_id]"
                           dataType="wstr"
                           length="100"
                           name="dispatch_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[device_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[device_id]"
                           dataType="wstr"
                           length="100"
                           name="device_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].ExternalColumns[time_inserted]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].ExternalColumns[time_inserted]"
                           dataType="wstr"
                           length="100"
                           name="time_inserted" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output]"
                       isErrorOut="true"
                       name="Error output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[ErrorCode]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[ErrorColumn]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[id]"
                           name="id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[user_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[user_id]"
                           name="user_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[external_user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[external_user_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[external_user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[external_user_id]"
                           name="external_user_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[app_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[app_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[app_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[app_id]"
                           name="app_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[time]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[time]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[time]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[time]"
                           name="time" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[timezone]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[timezone]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[timezone]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[timezone]"
                           name="timezone" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[platform]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[platform]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[platform]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[platform]"
                           name="platform" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[campaign_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[campaign_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[campaign_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[campaign_id]"
                           name="campaign_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[campaign_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[campaign_name]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[campaign_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[campaign_name]"
                           name="campaign_name" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[message_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[message_variation_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[message_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[message_variation_id]"
                           name="message_variation_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_id]"
                           name="canvas_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_name]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_name]"
                           name="canvas_name" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_variation_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_variation_id]"
                           name="canvas_variation_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_step_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_step_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[canvas_step_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[canvas_step_id]"
                           name="canvas_step_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[send_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[send_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[send_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[send_id]"
                           name="send_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[dispatch_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[dispatch_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[dispatch_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[dispatch_id]"
                           name="dispatch_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[device_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[device_id]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[device_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[device_id]"
                           name="device_id" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[time_inserted]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[time_inserted]"
                           dataType="wstr"
                           length="100"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Error output].Columns[time_inserted]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Error output].Columns[time_inserted]"
                           name="time_inserted" />
                       </outputColumns>
                       <externalMetadataColumns />
@@ -694,7 +709,7 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+                  refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
@@ -751,247 +766,247 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[currents]"
-                      connectionManagerRefId="Package.ConnectionManagers[currents]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[currents_OLEDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[currents_OLEDB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[user_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="user_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[user_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[user_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[external_user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[external_user_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="external_user_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[external_user_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[external_user_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[external_user_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[external_user_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[app_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="app_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[app_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[app_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="time"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timezone]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timezone]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="timezone"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[timezone]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[timezone]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[platform]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[platform]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="platform"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[platform]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[platform]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[platform]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[platform]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[campaign_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[campaign_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="campaign_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[campaign_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[campaign_name]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="campaign_name"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_name]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[campaign_name]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[campaign_name]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[message_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[message_variation_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="message_variation_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[message_variation_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[message_variation_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[message_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[message_variation_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="canvas_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_name]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="canvas_name"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_name]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_name]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_name]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_name]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_variation_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="canvas_variation_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_variation_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_variation_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_variation_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_step_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[canvas_step_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="canvas_step_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_step_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[canvas_step_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_step_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[canvas_step_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[send_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[send_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="send_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[send_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[send_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[send_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[send_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dispatch_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dispatch_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="dispatch_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dispatch_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[dispatch_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dispatch_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[dispatch_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[device_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[device_id]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="device_id"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[device_id]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[device_id]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[device_id]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[device_id]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time_inserted]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time_inserted]"
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="time_inserted"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_inserted]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output].Columns[time_inserted]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_inserted]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output].Columns[time_inserted]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceFileName]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceFileName]"
                           cachedDataType="wstr"
                           cachedLength="43"
                           cachedName="SourceFileName"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileName]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]" />
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Output].Columns[SourceFileName]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                           dataType="wstr"
                           length="256"
                           name="id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[user_id]"
                           dataType="wstr"
                           length="256"
                           name="user_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[external_user_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[external_user_id]"
                           dataType="wstr"
                           length="256"
                           name="external_user_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[app_id]"
                           dataType="wstr"
                           length="256"
                           name="app_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time]"
                           dataType="i4"
                           name="time" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
                           dataType="wstr"
                           length="256"
                           name="timezone" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[platform]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[platform]"
                           dataType="wstr"
                           length="256"
                           name="platform" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_id]"
                           dataType="wstr"
                           length="256"
                           name="campaign_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[campaign_name]"
                           dataType="wstr"
                           length="256"
                           name="campaign_name" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[message_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[message_variation_id]"
                           dataType="wstr"
                           length="256"
                           name="message_variation_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_id]"
                           dataType="wstr"
                           length="256"
                           name="canvas_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_name]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_name]"
                           dataType="wstr"
                           length="256"
                           name="canvas_name" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_variation_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_variation_id]"
                           dataType="wstr"
                           length="256"
                           name="canvas_variation_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_step_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[canvas_step_id]"
                           dataType="wstr"
                           length="256"
                           name="canvas_step_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[send_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[send_id]"
                           dataType="wstr"
                           length="256"
                           name="send_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dispatch_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dispatch_id]"
                           dataType="wstr"
                           length="256"
                           name="dispatch_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[device_id]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[device_id]"
                           dataType="wstr"
                           length="256"
                           name="device_id" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_inserted]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_inserted]"
                           dataType="dbTimeStamp2"
                           name="time_inserted"
                           scale="7" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileName]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceFileName]"
                           dataType="wstr"
                           length="256"
                           name="SourceFileName" />
@@ -1000,22 +1015,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1026,17 +1041,33 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
-                  startId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Outputs[Derived Column Output]" />
+                  startId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Outputs[Derived Column Output]" />
                 <path
-                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName.Inputs[Derived Column Input]"
+                  refId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB.Paths[Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName.Inputs[Derived Column Input]"
                   name="Output"
-                  startId="Package\Foreach Loop Container\Data Flow Task\Flexible File Source.Outputs[Output]" />
+                  startId="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source.Outputs[Output]" />
               </paths>
             </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{10CA62E6-1BAE-48DE-9B42-B3812A86D7EC}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task - SQL MI ODBC"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{56156593-5587-4247-B8F3-01B1F1DD06FA}"
+              SQLTask:SqlStatementSource="SELECT [SourceFileName], COUNT(*) AS Row_Count&#xA;FROM [currents].[dbo].[users_messages_pushnotification_Send]&#xA;GROUP BY [SourceFileName]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -1103,10 +1134,18 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{24E0F467-CFAB-4DD4-959F-8EE44BC594F8}"
+          DTS:From="Package\Foreach Loop Container\Flexible File Task - Delete"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{DFA4A257-C17A-46EA-AE23-5D557D800FCA}"
-          DTS:From="Package\Foreach Loop Container\Data Flow Task"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Foreach Loop Container\Flexible File Task - Copy" />
@@ -1142,31 +1181,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Foreach Loop Container\Data Flow Task"
-          TopLeft="279,99" />
+          Size="289,42"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB"
+          TopLeft="60,19" />
         <NodeLayout
           Size="165,42"
           Id="Package\Foreach Loop Container\Flexible File Task - Copy"
-          TopLeft="270,186" />
+          TopLeft="120,92" />
         <NodeLayout
           Size="206,42"
           Id="Package\Foreach Loop Container\Flexible File Task - Delete"
-          TopLeft="243,269" />
+          TopLeft="94,168" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="354.5,141">
+          TopLeft="203.5,61">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,31"
               Start="0,0"
-              End="0,37.5">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1177,18 +1216,44 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="349.25,228">
+          TopLeft="199.75,134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,34"
               Start="0,0"
-              End="0,33.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="252,42"
+          Id="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC"
+          TopLeft="69,242" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="196,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1200,32 +1265,32 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="744,387"
-          Size="744,430"
+          PanelSize="398,308"
+          Size="398,351"
           Id="Package\Foreach Loop Container"
-          TopLeft="630.5,250" />
+          TopLeft="15.5,538" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Foreach Loop Container\Data Flow Task">
+    design-time-name="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="176,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\Flexible File Source"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source"
           TopLeft="655,401" />
         <NodeLayout
           Size="213,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column vFileName"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Derived Column vFileName"
           TopLeft="893,403" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination"
           TopLeft="1179,401" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Output]"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB.Paths[Output]"
           TopLeft="831,423">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1243,13 +1308,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB.Paths[Derived Column Output]"
           TopLeft="1106,423">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1267,16 +1330,14 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Data Flow Task\Flexible File Source">
+    design-time-name="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1284,7 +1345,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

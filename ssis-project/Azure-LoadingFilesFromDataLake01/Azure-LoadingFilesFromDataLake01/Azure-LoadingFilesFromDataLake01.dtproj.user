@@ -8,6 +8,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>aiasqlmisvr01.a1e189469806.database.windows.net</ServerName>
+        <PathOnServer>/SSISDB/LoadFromDataLake/Azure-LoadingFilesFromDataLake01</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
