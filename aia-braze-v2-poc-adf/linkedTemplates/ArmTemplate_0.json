@@ -364,7 +364,7 @@
 								"typeProperties": {
 									"packagePassword": {
 										"type": "SecureString",
-										"value": "**********"
+										"value": "acntorPRESTO!"
 									}
 								}
 							},
@@ -427,9 +427,6 @@
 								},
 								"currents_ODBC": {
 									"ConnectByProxy": {
-										"value": "False"
-									},
-									"ConnectUsingManagedIdentity": {
 										"value": "False"
 									},
 									"ConnectionString": {
