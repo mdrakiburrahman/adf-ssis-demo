@@ -1,0 +1,46 @@
+{
+	"name": "1_Autoloader_End_To_End",
+	"properties": {
+		"activities": [
+			{
+				"name": "Run Autoloader To Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Trigger_Autoloader_To_Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Run Synapse To SQL Server",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Run Autoloader To Synapse",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_Copy_Incremental_Synapse_To_SQL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Braze-Autoloader/0_Root"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-03-28T20:04:14Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

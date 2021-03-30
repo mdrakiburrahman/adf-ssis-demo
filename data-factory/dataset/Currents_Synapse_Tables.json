@@ -1,0 +1,26 @@
+{
+	"name": "Currents_Synapse_Tables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Currents_Synapse",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table": {
+				"type": "string",
+				"defaultValue": "users_messages_pushnotification_Bounce"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
