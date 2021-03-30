@@ -420,7 +420,40 @@
 										"value": "True"
 									}
 								},
-								"currents": {
+								"currents_ODBC": {
+									"ConnectByProxy": {
+										"value": "False"
+									},
+									"ConnectUsingManagedIdentity": {
+										"value": "False"
+									},
+									"ConnectionString": {
+										"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
+									},
+									"InitialCatalog": {
+										"value": "currents"
+									},
+									"Password": {
+										"value": {
+											"type": "AzureKeyVaultSecret",
+											"store": {
+												"referenceName": "AzureKeyVault",
+												"type": "LinkedServiceReference"
+											},
+											"secretName": "SSIS-currents-Password"
+										}
+									},
+									"RetainSameConnection": {
+										"value": "False"
+									},
+									"ServerName": {
+										"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
+									},
+									"UserName": {
+										"value": "boor"
+									}
+								},
+								"currents_OLEDB": {
 									"ConnectByProxy": {
 										"value": "False"
 									},
