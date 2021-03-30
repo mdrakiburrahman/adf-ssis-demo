@@ -533,7 +533,7 @@
 							},
 							"projectConnectionManagers": {},
 							"packageConnectionManagers": {
-								"DataLake": {
+								"DataFake": {
 									"AccountKey": {
 										"value": {
 											"type": "SecureString",
