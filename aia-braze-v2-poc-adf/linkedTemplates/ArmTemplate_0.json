@@ -614,19 +614,13 @@
 								"type": "IntegrationRuntimeReference"
 							},
 							"projectConnectionManagers": {},
-							"packageConnectionManagers": {
-								"DataLake": {
-									"AccountKey": {
-										"value": {
-											"type": "SecureString",
-											"value": "gibberish"
-										}
-									}
-								}
-							}
+							"packageConnectionManagers": {}
 						}
 					}
 				],
+				"folder": {
+					"name": "SSIS-Demo"
+				},
 				"annotations": []
 			},
 			"dependsOn": [
