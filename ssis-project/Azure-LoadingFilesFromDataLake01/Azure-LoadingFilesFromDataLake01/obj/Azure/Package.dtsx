@@ -27,12 +27,12 @@
           DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="tqOJ80EWzMk="
-            IV="qp1F+yhCnfjZuq5rxaJqMg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="1OhYj20pq/8="
+            IV="nS5HOAQBBqPyM+pbMuiKsg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qp1F+yhCnfjZuq5rxaJqMgeT7cW5UrvPKR7NQwZXdM8quT1QtUXivtx6AjwYX2Z+lWHJVInkRyyxTmBw8c64gsN92bRvliQ9X+DXZph23oGTiyvndmboROMcicRFiXJ8JWJQhFk8CUGIdBOFAdBxpEVA2LftBatR1nLMSXg9qG79TxZwcAX2+JgqLYJyd9BJ</CipherValue>
+              <CipherValue>nS5HOAQBBqPyM+pbMuiKsrFoqiDI9SU0bvsYky1JWI73ZL0yJB3DZXuPbEqWQhv6bneNPgW5H3U2YaZ0ANUIWfwPs3ay0FHgEf1IXyTacgrea+6S0UjFoesC2ogApmBmfDujhjfKNnk7lZMUlnUJ/VWe4Ebd6tvrY+tFljxfHj2A2YZtv90qnF2YI4JWcRs/</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="6Yl+OkttHVs="
-            IV="R/aXRc8fJywUwQEECwBdmg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="UQRTAgUgevE="
+            IV="GgkfMzlfVzayYe4w7j+fBA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>R/aXRc8fJywUwQEECwBdmqz8EmDAgc7rreYbCL16fHRndql1GmRz/1v4lYr+a1/o4siAQRc2CjERMRAbzLrZd5LiEqWz2NEMTavqBs1uFXxqQ9stD3l7l4k8nBFMghOGf9ORzs0QkqBWV2GhncOFgpiA5D25ddVNH0LWMnujKs+h1Sq5DV8H1Sw1rDcypQN2</CipherValue>
+              <CipherValue>GgkfMzlfVzayYe4w7j+fBKKRTOEJ1mtOgFkdDvfYG7HkON/RlEJn6WmDSnhxLy41OB5mlnCCGfuQbE7k1hEiIvxHkmzAI41dCqY0AFjXbBeYQkgVn7Whzr9rghXV67wBYm6k64mXGwae577z7H2/FTN2j+LjzNb+OZ8mMXKSmT7qwUk6JueIhwVSy0jTSlAU</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="0rEq4eURThA="
-            IV="aL3IXDmJC9ogOSi3wJF/tA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="g3P9S5XxxXc="
+            IV="PwxBunntn2lgym0DOp9CNA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>aL3IXDmJC9ogOSi3wJF/tJkP57+TJGe/D5Ayg/fDoL2lBPsj20K6/V/aw+bzQ49tPnXeUQ2jMEmekc+9XnoTHnTbe4pv3sk7/jsaSneEE45pbz13oUGvj7+iG9pXRgkA33UBObAtPiu/Bqfngycn3Bde6kWrulFDJVgmfZPnoMr1Y8rri8SvAo2ZbXCnKftb</CipherValue>
+              <CipherValue>PwxBunntn2lgym0DOp9CNO0upSRjcr1IkSXfWft/nSahQ3aHgNAuVbR/Ez6E2xF6XRCtsCF2Vayr2UNdwvPpQ8gK5/Ad5ElXEZN9rpOKVSTOCLhNTCRbFReYLuKQUm3WN+J/5vFDD+itaSwWuk87DC4+c+G5e4qy+n7Ky8b4w5hEyz61+M1kP+jqmBCCz6h4</CipherValue>
             </CipherData>
           </EncryptedData>
         </AzureStorageConnectionManager>
