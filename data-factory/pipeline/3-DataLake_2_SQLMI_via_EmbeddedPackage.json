@@ -31,12 +31,8 @@
 						"DataLake": {
 							"AccountKey": {
 								"value": {
-									"type": "AzureKeyVaultSecret",
-									"store": {
-										"referenceName": "AzureKeyVault",
-										"type": "LinkedServiceReference"
-									},
-									"secretName": "SSIS-DataLake-AccountKey"
+									"type": "SecureString",
+									"value": "**********"
 								}
 							},
 							"AccountName": {
