@@ -1,5 +1,5 @@
 {
-	"name": "Child_SSISPackage_Embedded",
+	"name": "4_Child_SSISPackage_Embedded",
 	"properties": {
 		"activities": [
 			{
@@ -152,7 +152,7 @@
 			}
 		],
 		"folder": {
-			"name": "SSIS-IR-stop-reproduction"
+			"name": "SSIS-IR-stop-reproduction/4_Level"
 		},
 		"annotations": []
 	}
