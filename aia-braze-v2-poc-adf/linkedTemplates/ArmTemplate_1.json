@@ -717,6 +717,132 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "2_B",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_A",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_B",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "2_C",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_B",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_C",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "2_D",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_C",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_D",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "2_E",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_D",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_E",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "2_F",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_E",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_F",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "2_G",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "2_F",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "2_G",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"folder": {
@@ -724,7 +850,14 @@
 				},
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/2_B')]",
+				"[concat(variables('factoryId'), '/pipelines/2_C')]",
+				"[concat(variables('factoryId'), '/pipelines/2_D')]",
+				"[concat(variables('factoryId'), '/pipelines/2_E')]",
+				"[concat(variables('factoryId'), '/pipelines/2_F')]",
+				"[concat(variables('factoryId'), '/pipelines/2_G')]"
+			]
 		}
 	]
 }
