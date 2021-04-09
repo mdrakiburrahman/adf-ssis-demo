@@ -1,0 +1,20 @@
+{
+	"name": "2_A",
+	"properties": {
+		"activities": [
+			{
+				"name": "3_A_1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "SSIS-IR-stop-reproduction/2_Level"
+		},
+		"annotations": []
+	}
+}

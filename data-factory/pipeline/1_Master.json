@@ -1,0 +1,24 @@
+{
+	"name": "1_Master",
+	"properties": {
+		"activities": [
+			{
+				"name": "2_A",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_A",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "SSIS-IR-stop-reproduction"
+		},
+		"annotations": []
+	}
+}
