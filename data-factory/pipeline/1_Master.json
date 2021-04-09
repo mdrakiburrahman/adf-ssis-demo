@@ -134,6 +134,118 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "2_H",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_G",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_I",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_H",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_J",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_I",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_K",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_J",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_L",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_K",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_M",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_L",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_N",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "2_M",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
