@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "2_A_1",
+				"name": "1",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
@@ -16,7 +16,7 @@
 				}
 			},
 			{
-				"name": "2_A_2",
+				"name": "2",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "2_A_3",
+				"name": "3",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
@@ -42,7 +42,7 @@
 				}
 			},
 			{
-				"name": "2_A_4",
+				"name": "4",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
