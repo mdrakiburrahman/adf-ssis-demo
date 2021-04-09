@@ -12,8 +12,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{B3E5713A-4536-42EE-93B9-5134D0979836}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{90FF0ED5-63FB-4AFC-B21F-94C9D1F25B84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="1OhYj20pq/8="
-            IV="nS5HOAQBBqPyM+pbMuiKsg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="zaFgutTQH2s="
+            IV="T6dUmy07SFe9JrQCA6pWeA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>nS5HOAQBBqPyM+pbMuiKsrFoqiDI9SU0bvsYky1JWI73ZL0yJB3DZXuPbEqWQhv6bneNPgW5H3U2YaZ0ANUIWfwPs3ay0FHgEf1IXyTacgrea+6S0UjFoesC2ogApmBmfDujhjfKNnk7lZMUlnUJ/VWe4Ebd6tvrY+tFljxfHj2A2YZtv90qnF2YI4JWcRs/</CipherValue>
+              <CipherValue>T6dUmy07SFe9JrQCA6pWeJxEL4nOXGiQyCcIGvMbGXIPiWO/8LDa+N3B5hk/Si2fGEs0mqLw5i3o3yu4u3p4hC5giuKN5OXzEKltTEyGQkZ2moAZd8QMh2VyPPi+r9Rpne1BwGrofCUx9ppYEXkoArfijK7xMV8uHwSJlwjNPAzGY08nIHYRwtX0YIj/3YsJ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="UQRTAgUgevE="
-            IV="GgkfMzlfVzayYe4w7j+fBA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="TazRCNTJEKw="
+            IV="sbyBz+7MwTg3//Jpsl2dGw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>GgkfMzlfVzayYe4w7j+fBKKRTOEJ1mtOgFkdDvfYG7HkON/RlEJn6WmDSnhxLy41OB5mlnCCGfuQbE7k1hEiIvxHkmzAI41dCqY0AFjXbBeYQkgVn7Whzr9rghXV67wBYm6k64mXGwae577z7H2/FTN2j+LjzNb+OZ8mMXKSmT7qwUk6JueIhwVSy0jTSlAU</CipherValue>
+              <CipherValue>sbyBz+7MwTg3//Jpsl2dG2GhydYbMaZBFhJP54DpFlVSF7OD6QfUeACcaxJG/5zvhvSWsXvgW863lcuIwNFgPPoGl8Np6n0ULMf1BePfUwVGlS14vLjiq7zOrwJO1BLs4iG7M8vrUAqPugrJxrI5oC3BNzFYvfcNKwdCSx/cIDabzD+X3nEzlOi/U2Wlxq4u</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -70,12 +70,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="g3P9S5XxxXc="
-            IV="PwxBunntn2lgym0DOp9CNA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="IZOYhzjkVWg="
+            IV="tJsHDyAD/5Qw7xs9Ja1R5A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>PwxBunntn2lgym0DOp9CNO0upSRjcr1IkSXfWft/nSahQ3aHgNAuVbR/Ez6E2xF6XRCtsCF2Vayr2UNdwvPpQ8gK5/Ad5ElXEZN9rpOKVSTOCLhNTCRbFReYLuKQUm3WN+J/5vFDD+itaSwWuk87DC4+c+G5e4qy+n7Ky8b4w5hEyz61+M1kP+jqmBCCz6h4</CipherValue>
+              <CipherValue>tJsHDyAD/5Qw7xs9Ja1R5CmFcxdMT/e0whBdl0Ygr0kxtScacq6zn4+6YHPCh9KndeAwnEnnbP4dNO12BkwKzzh9AQ6OnnAgmBD00N90UVHtaOMjyruBzBkiv6puBrVffp4ehIV9i/AaaLCwZg9IuicdGlt3zb4A9TFInw5Xw42XqdqTjHFor+qmKvg+lRsB</CipherValue>
             </CipherData>
           </EncryptedData>
         </AzureStorageConnectionManager>
@@ -1094,6 +1094,7 @@
           DTS:refId="Package\Foreach Loop Container\Flexible File Task - Copy"
           DTS:CreationName="ExtensibleFileTask"
           DTS:Description="Flexible File Task"
+          DTS:Disabled="True"
           DTS:DTSID="{4DB74534-C181-451D-8D78-6216CB5C8793}"
           DTS:ExecutableType="ExtensibleFileTask"
           DTS:LocaleID="-1"
@@ -1128,6 +1129,7 @@
           DTS:refId="Package\Foreach Loop Container\Flexible File Task - Delete"
           DTS:CreationName="ExtensibleFileTask"
           DTS:Description="Flexible File Task"
+          DTS:Disabled="True"
           DTS:DTSID="{94CF6122-1F00-4199-8C3B-0665C4AC9484}"
           DTS:ExecutableType="ExtensibleFileTask"
           DTS:LocaleID="-1"
@@ -1205,6 +1207,10 @@
           Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB"
           TopLeft="60,19" />
         <NodeLayout
+          Size="252,42"
+          Id="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC"
+          TopLeft="69,242" />
+        <NodeLayout
           Size="165,42"
           Id="Package\Foreach Loop Container\Flexible File Task - Copy"
           TopLeft="120,92" />
@@ -1212,6 +1218,28 @@
           Size="206,42"
           Id="Package\Foreach Loop Container\Flexible File Task - Delete"
           TopLeft="94,168" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="196,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="203.5,61">
@@ -1256,39 +1284,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="252,42"
-          Id="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC"
-          TopLeft="69,242" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
-          TopLeft="196,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32"
-              Start="0,0"
-              End="0,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="398,308"
           Size="398,351"
           Id="Package\Foreach Loop Container"
-          TopLeft="15.5,538" />
+          TopLeft="139.5,421" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1296,7 +1298,7 @@
     design-time-name="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="176,42"
           Id="Package\Foreach Loop Container\Data Flow Task - ADLS to SQL MI OLE DB\Flexible File Source"
@@ -1328,7 +1330,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1350,7 +1354,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

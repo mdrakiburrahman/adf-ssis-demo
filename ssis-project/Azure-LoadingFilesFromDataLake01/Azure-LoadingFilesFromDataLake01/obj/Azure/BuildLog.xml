@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Azure-LoadingFilesFromDataLake01</Name>
-    <LastWriteTime>2021-03-30T14:03:11.6470897Z</LastWriteTime>
+    <LastWriteTime>2021-04-09T20:07:21.6272637Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-    <Salt>5wSnHl4O</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAADhKHfbcOp+eoGjJFTM7AYICSBvDohlYp7WQmC7QecM3AAAAAAOgAAAAAIAACAAAADSZcn9Ndt6Xvmk5GJt6Kcc6FgoTHNZkR8YTrYbGWdHqjAAAAADnxNf5LzbWg/M5aDL2HvfPTvpI+k4ErTrTyut5FJax7HyxJH4yEWcGlUPLUmCM3tAAAAAhGc8i9cRt2oExHBWfFCLNq31VdxoiErF47C2fWKtMA1ArGPtV7Bl4moujzKsL2ECWBDKSWIKCuKKdYtyuxFFJA==</LastKnownProtectedHashedPassword>
+    <Salt>Rv705/IK</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAAZsiCrpV0PkVcjiu5ouBNJhyLe0NG1mbTD8KXKQrw+8QAAAAAOgAAAAAIAACAAAABgOt+mRhQ1pfq0k71VFc7m64ClI6NlCkcjjd7rWmUmqzAAAAB0GSuOjCnZb+3pNvOvwbc2vC0rn9UlIX4uV/ZPO7qapm3c/x+zdWSh4EvbjVVR4+5AAAAA/pRCpo78vT2HXdmbFEaqB4U18gGIDmJlbRX/oNin43IiVGQ5T5wh2eovaXdKUvo1gTvTIDq9YtW6Z/5IuUGHgw==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2021-03-30T14:01:31.8143435Z</LastWriteTime>
+      <LastWriteTime>2021-04-09T20:48:02.1929037Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>/cRjO9KB</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAA6U/aA1438qETlZOKDWW5Qx45y/AhAnMnJ9tiZuh9JggAAAAAOgAAAAAIAACAAAADotcJEtIw3BdrmwL6iXeYn+ZRHO+KdtKK4ZNAEfHLCYDAAAACbO180ajSk29Ts+XC+iQpl8CN/ktfGbYHf5r7TAnu/7lGVc3nV7mAFQ/HxJKWR0StAAAAAX+UQi/pAnU45z6r4Ltwx4ZWcTYrTNgs/CZ8jQhtD6jS6zrO3qygJcdaE5AS+n0nf94gRNsCT26MlZt0agIprJQ==</LastKnownProtectedHashedPassword>
+      <Salt>slBrn4kT</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAABYDkspvVS2AOp3BLmknblbvalEUnLqkp+4zXWyI7zExAAAAAAOgAAAAAIAACAAAACp3SYAN8vDBmavNP5OIuwYbJ2AqbK+q6lFqj2QwdGGATAAAACTxq33CZHgkORNDAS71FbuHHhDZ2iOFzD44SN6qicGKDYitBHc4FxFxFW26Aur1bNAAAAAWU4FQsutgXkKSTj+Iq1envIdxXrY3RJOY/V90Idp81mxUzkwO9sUfYkUdv/jEnOg+vymkDXvYzHHJZ1w1m3mgg==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>
