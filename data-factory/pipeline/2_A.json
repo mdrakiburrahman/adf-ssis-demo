@@ -14,10 +14,49 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "2_A_2",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3_Child_SSISPackage_Embedded",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_A_3",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3_Child_SSISPackage_Embedded",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "2_A_4",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3_Child_SSISPackage_Embedded",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"folder": {
-			"name": "SSIS-IR-stop-reproduction/2_Level"
+			"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 		},
 		"annotations": []
 	}
