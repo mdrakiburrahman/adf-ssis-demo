@@ -4,16 +4,16 @@
     <Name>Azure-LoadingFilesFromDataLake01</Name>
     <LastWriteTime>2021-04-09T20:07:21.6272637Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-    <Salt>Rv705/IK</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAAZsiCrpV0PkVcjiu5ouBNJhyLe0NG1mbTD8KXKQrw+8QAAAAAOgAAAAAIAACAAAABgOt+mRhQ1pfq0k71VFc7m64ClI6NlCkcjjd7rWmUmqzAAAAB0GSuOjCnZb+3pNvOvwbc2vC0rn9UlIX4uV/ZPO7qapm3c/x+zdWSh4EvbjVVR4+5AAAAA/pRCpo78vT2HXdmbFEaqB4U18gGIDmJlbRX/oNin43IiVGQ5T5wh2eovaXdKUvo1gTvTIDq9YtW6Z/5IuUGHgw==</LastKnownProtectedHashedPassword>
+    <Salt>nXiJp46G</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAAC3ESm7zyXp84354UH7E2JcazsMFuH+ETFdFFcix9uoigAAAAAOgAAAAAIAACAAAAAg39Dzoj2sUvS6SX1v1HJW7NrJbCfIGHl2GYo3TP8qDjAAAAB8nLN75UpQojl3ZLNLqT05+HL6/nFMqfEyPvUQac1VeycB8r/BPi28nMead17O9eNAAAAAjbM6ntosAMTy8INxMERyAr0Mn+4EMdfkJ0lSRL0lkNn53hkD2JG+gXdpLv2rCNXq/B652xzVr7QPGCH5mQDS+A==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2021-04-09T20:48:02.1929037Z</LastWriteTime>
+      <LastWriteTime>2021-04-09T20:55:15.0578914Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
-      <Salt>slBrn4kT</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAABYDkspvVS2AOp3BLmknblbvalEUnLqkp+4zXWyI7zExAAAAAAOgAAAAAIAACAAAACp3SYAN8vDBmavNP5OIuwYbJ2AqbK+q6lFqj2QwdGGATAAAACTxq33CZHgkORNDAS71FbuHHhDZ2iOFzD44SN6qicGKDYitBHc4FxFxFW26Aur1bNAAAAAWU4FQsutgXkKSTj+Iq1envIdxXrY3RJOY/V90Idp81mxUzkwO9sUfYkUdv/jEnOg+vymkDXvYzHHJZ1w1m3mgg==</LastKnownProtectedHashedPassword>
+      <Salt>FjjFvRgs</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARvK3TzAgY0Wd2Adb7jf7ngAAAAACAAAAAAAQZgAAAAEAACAAAACA8FEHkeyx2T49PvUxEu/WV5kmX3x8cPmUrYOU0MqGNQAAAAAOgAAAAAIAACAAAADF7zn2yf2MZKFR1uM5JrbbJCtKytYC5xxrm+KYMOnW7DAAAACcwGn+3smKc1ekaLqpHy++hSQagfB+kz69GJaMmXGRsXiNiSy8xQOrZovJj2xmv3xAAAAAGo8QhFzIr+s1/pLVGVErEZm/EHDSHWnCLBZ5SsaZ3ov0MSaOrabEtEQ3JoKgQbVL6N759zctzc8FA3fVPgjGmw==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>
