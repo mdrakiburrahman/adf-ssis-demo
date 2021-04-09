@@ -3,11 +3,15 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "3_A_1",
+				"name": "2_A_1",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3_Child_SSISPackage_Embedded",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			}
