@@ -148,6 +148,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_H",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -164,6 +168,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_I",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -180,6 +188,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_J",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -196,6 +208,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_K",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -212,6 +228,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_L",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -228,6 +248,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_M",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
@@ -244,6 +268,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "2_N",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			}
