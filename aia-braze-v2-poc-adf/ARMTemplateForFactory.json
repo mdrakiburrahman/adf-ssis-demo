@@ -2754,6 +2754,99 @@
 				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]",
 				"[concat(variables('factoryId'), '/linkedServices/FileSystemPackageStore')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/0_Root')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Run_1 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_2 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_1 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_3 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_2 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_4 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_3 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "SSIS-IR-stop-reproduction/0_Level"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/1_Master')]"
+			]
 		}
 	]
 }
