@@ -64,6 +64,99 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/0_Root')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Run_1 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_2 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_1 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_3 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_2 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "Run_4 - 1_Master",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "Run_3 - 1_Master",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "1_Master",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "SSIS-IR-stop-reproduction/0_Level"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/1_Master')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/1-DataLake_2_SQLMI_via_SSISDB')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -2288,7 +2381,7 @@
 						"type": "ExecuteSSISPackage",
 						"dependsOn": [],
 						"policy": {
-							"timeout": "7.00:00:00",
+							"timeout": "0.00:01:30",
 							"retry": 0,
 							"retryIntervalInSeconds": 30,
 							"secureOutput": false,
@@ -2703,6 +2796,32 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ManagedintegrationRuntime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "Canada Central",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 240,
+							"cleanup": false
+						}
+					}
+				},
+				"managedVirtualNetwork": {
+					"type": "ManagedVirtualNetworkReference",
+					"referenceName": "default"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -2711,7 +2830,7 @@
 				"typeProperties": {
 					"computeProperties": {
 						"location": "East US",
-						"nodeSize": "Standard_D2_v3",
+						"nodeSize": "Standard_D1_v2",
 						"numberOfNodes": 1,
 						"maxParallelExecutionsPerNode": 8,
 						"vNetProperties": {
@@ -2756,97 +2875,13 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/0_Root')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/default')]",
+			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
-					{
-						"name": "Run_1 - 1_Master",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "1_Master",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Run_2 - 1_Master",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Run_1 - 1_Master",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "1_Master",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Run_3 - 1_Master",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Run_2 - 1_Master",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "1_Master",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "Run_4 - 1_Master",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Run_3 - 1_Master",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "1_Master",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "SSIS-IR-stop-reproduction/0_Level"
-				},
-				"annotations": []
+				"preventDataExfiltration": false
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/1_Master')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
