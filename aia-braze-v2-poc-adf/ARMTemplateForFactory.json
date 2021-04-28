@@ -2237,7 +2237,7 @@
 							},
 							"environmentPath": null,
 							"connectVia": {
-								"referenceName": "SSISAzureIntegrationRuntime-01",
+								"referenceName": "SSISAzureIntegrationRuntime",
 								"type": "IntegrationRuntimeReference"
 							},
 							"projectConnectionManagers": {},
@@ -2366,7 +2366,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime-01')]",
+				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
 			]
 		},
