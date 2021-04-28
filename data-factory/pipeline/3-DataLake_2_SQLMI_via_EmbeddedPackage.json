@@ -29,7 +29,7 @@
 					},
 					"environmentPath": null,
 					"connectVia": {
-						"referenceName": "SSISAzureIntegrationRuntime-01",
+						"referenceName": "SSISAzureIntegrationRuntime-02",
 						"type": "IntegrationRuntimeReference"
 					},
 					"packageConnectionManagers": {
