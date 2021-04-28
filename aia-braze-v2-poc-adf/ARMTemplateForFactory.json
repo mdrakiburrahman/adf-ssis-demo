@@ -2237,7 +2237,7 @@
 							},
 							"environmentPath": null,
 							"connectVia": {
-								"referenceName": "SSISAzureIntegrationRuntime",
+								"referenceName": "SSISAzureIntegrationRuntime-01",
 								"type": "IntegrationRuntimeReference"
 							},
 							"projectConnectionManagers": {},
@@ -2366,7 +2366,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime-01')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
 			]
 		},
@@ -2820,6 +2820,57 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime-01')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"description": "Integration Runtime in Canada Central",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "Canada Central",
+						"nodeSize": "Standard_D1_v2",
+						"numberOfNodes": 1,
+						"maxParallelExecutionsPerNode": 4,
+						"vNetProperties": {
+							"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiacanadacentralvnet",
+							"subnet": "ADF_IR_subnet"
+						}
+					},
+					"ssisProperties": {
+						"edition": "Standard",
+						"licenseType": "BasePrice"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime-02')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "Canada Central",
+						"nodeSize": "Standard_D1_v2",
+						"numberOfNodes": 1,
+						"maxParallelExecutionsPerNode": 1,
+						"vNetProperties": {
+							"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiacanadacentralvnet",
+							"subnet": "ADF_IR_Subnet_clone"
+						}
+					},
+					"ssisProperties": {
+						"edition": "Standard",
+						"licenseType": "BasePrice"
+					}
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime')]",
