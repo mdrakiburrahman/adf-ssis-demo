@@ -1,0 +1,23 @@
+{
+	"name": "SSISAzureIntegrationRuntime-01",
+	"properties": {
+		"type": "Managed",
+		"description": "Integration Runtime in Canada Central",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "Canada Central",
+				"nodeSize": "Standard_D1_v2",
+				"numberOfNodes": 1,
+				"maxParallelExecutionsPerNode": 4,
+				"vNetProperties": {
+					"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiacanadacentralvnet",
+					"subnet": "ADF_IR_subnet"
+				}
+			},
+			"ssisProperties": {
+				"edition": "Standard",
+				"licenseType": "BasePrice"
+			}
+		}
+	}
+}

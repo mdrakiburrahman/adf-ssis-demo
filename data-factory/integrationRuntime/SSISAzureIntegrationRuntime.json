@@ -7,7 +7,7 @@
 				"location": "East US",
 				"nodeSize": "Standard_D1_v2",
 				"numberOfNodes": 1,
-				"maxParallelExecutionsPerNode": 1,
+				"maxParallelExecutionsPerNode": 8,
 				"vNetProperties": {
 					"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiatelegrafvnet",
 					"subnet": "ADF_IR_subnet"

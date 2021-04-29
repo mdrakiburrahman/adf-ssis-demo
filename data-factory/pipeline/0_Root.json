@@ -1,0 +1,84 @@
+{
+	"name": "0_Root",
+	"properties": {
+		"activities": [
+			{
+				"name": "Run_1 - 1_Master",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Master",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Run_2 - 1_Master",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Run_1 - 1_Master",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Master",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Run_3 - 1_Master",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Run_2 - 1_Master",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Master",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Run_4 - 1_Master",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Run_3 - 1_Master",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "1_Master",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "SSIS-IR-stop-reproduction/0_Level"
+		},
+		"annotations": []
+	}
+}
