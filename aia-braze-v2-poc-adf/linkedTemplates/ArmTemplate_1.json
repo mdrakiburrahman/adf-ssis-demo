@@ -13,6 +13,34 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Currents_SQLServer_Tables')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Currents_SQLServer",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"table": {
+						"type": "string",
+						"defaultValue": "users_messages_pushnotification_Bounce"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": {
+						"value": "@dataset().table",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Currents_Synapse_Tables')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -578,7 +606,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/watermarktable')]",
-				"[concat(variables('factoryId'), '/datasets/Currents_Synapse_Tables')]"
+				"[concat(variables('factoryId'), '/datasets/Currents_Synapse_Tables')]",
+				"[concat(variables('factoryId'), '/datasets/Currents_SQLServer_Tables')]"
 			]
 		},
 		{
@@ -1549,322 +1578,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/1_Trigger_Autoloader_To_Synapse')]",
 				"[concat(variables('factoryId'), '/pipelines/2_Copy_Incremental_Synapse_To_SQL')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/1_Master')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "2_A",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_A",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_B",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_A",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_B",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_C",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_B",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_C",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_D",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_C",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_D",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_E",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_D",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_E",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_F",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_E",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_F",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_G",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_F",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_G",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_H",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_G",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_H",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_I",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_H",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_I",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_J",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_I",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_J",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_K",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_J",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_K",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_L",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_K",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_L",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_M",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_L",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_M",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "2_N",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "2_M",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "2_N",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "SSIS-IR-stop-reproduction/1_Level"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/2_A')]",
-				"[concat(variables('factoryId'), '/pipelines/2_B')]",
-				"[concat(variables('factoryId'), '/pipelines/2_C')]",
-				"[concat(variables('factoryId'), '/pipelines/2_D')]",
-				"[concat(variables('factoryId'), '/pipelines/2_E')]",
-				"[concat(variables('factoryId'), '/pipelines/2_F')]",
-				"[concat(variables('factoryId'), '/pipelines/2_G')]",
-				"[concat(variables('factoryId'), '/pipelines/2_H')]",
-				"[concat(variables('factoryId'), '/pipelines/2_I')]",
-				"[concat(variables('factoryId'), '/pipelines/2_J')]",
-				"[concat(variables('factoryId'), '/pipelines/2_K')]",
-				"[concat(variables('factoryId'), '/pipelines/2_L')]",
-				"[concat(variables('factoryId'), '/pipelines/2_M')]",
-				"[concat(variables('factoryId'), '/pipelines/2_N')]"
 			]
 		}
 	]
