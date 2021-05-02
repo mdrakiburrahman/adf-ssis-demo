@@ -32,6 +32,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"purview-account": {
+				"type": "string",
+				"defaultValue": "aia-purview"
+			}
+		},
 		"folder": {
 			"name": "Purview-SHIR-demonstration"
 		},
