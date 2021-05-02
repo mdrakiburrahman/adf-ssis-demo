@@ -52,7 +52,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://aia-purview.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview",
+						"value": "@concat('https://', pipeline().parameters.purview-account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
 						"type": "Expression"
 					},
 					"connectVia": {
@@ -87,7 +87,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://aia-purview.scan.purview.azure.com/datasources/Braze-ADLS/scans/Scan-07?api-version=2020-12-01-preview",
+						"value": "@concat('https://', pipeline().parameters.purview-account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan-name, '?api-version=2020-12-01-preview')",
 						"type": "Expression"
 					},
 					"connectVia": {
@@ -96,7 +96,7 @@
 					},
 					"method": "PUT",
 					"body": {
-						"value": "{\n   \"name\":\"Scan-07\",\n   \"kind\":\"AdlsGen2Credential\",\n   \"properties\":{\n      \"connectedVia\":{\n         \"referenceName\":\"IntegrationRuntime-aiadsvm01\"\n      },\n      \"credential\":{\n         \"referenceName\":\"ADLS-Braze-SP-ClientKey\",\n         \"credentialType\":\"ServicePrincipal\"\n      },\n      \"scanRulesetType\":\"System\",\n      \"scanRulesetName\":\"AdlsGen2\"\n   }\n}",
+						"value": "@concat('{\\\"name\\\":\\\"', pipeline().parameters.scan-name, '\\\",\\\"kind\\\":\\\"AdlsGen2Credential\\\",\\\"properties\\\":{\\\"connectedVia\\\":{\\\"referenceName\\\":\\\"IntegrationRuntime-aiadsvm01\\\"},\\\"credential\\\":{\\\"referenceName\\\":\\\"ADLS-Braze-SP-ClientKey\\\",\\\"credentialType\\\":\\\"ServicePrincipal\\\"},\\\"scanRulesetType\\\":\\\"System\\\",\\\"scanRulesetName\\\":\\\"AdlsGen2\\\"}}')",
 						"type": "Expression"
 					},
 					"authentication": {
