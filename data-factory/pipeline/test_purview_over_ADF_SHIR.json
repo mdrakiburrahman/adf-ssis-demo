@@ -32,16 +32,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"purview-account": {
-				"type": "string",
-				"defaultValue": "aia-purview"
-			},
-			"scan-name": {
-				"type": "string",
-				"defaultValue": "Scan-08"
-			}
-		},
 		"folder": {
 			"name": "Purview-SHIR-demonstration"
 		},
