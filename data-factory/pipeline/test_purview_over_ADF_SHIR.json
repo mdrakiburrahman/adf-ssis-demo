@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://aia-purview.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview",
+						"value": "@concat('https://', pipeline().parameters.purview-account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
 						"type": "Expression"
 					},
 					"connectVia": {
@@ -183,6 +183,16 @@
 				}
 			}
 		],
+		"parameters": {
+			"purview-account": {
+				"type": "string",
+				"defaultValue": "aia-purview"
+			},
+			"scan-name": {
+				"type": "string",
+				"defaultValue": "Scan-08"
+			}
+		},
 		"folder": {
 			"name": "Purview-SHIR-demonstration"
 		},
