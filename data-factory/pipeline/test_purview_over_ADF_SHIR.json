@@ -126,7 +126,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://aia-purview.scan.purview.azure.com/datasources/Braze-ADLS/scans/Scan-07/filters/custom?api-version=2020-12-01-preview",
+						"value": "@concat('https://', pipeline().parameters.purview-account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan-name, '/filters/custom?api-version=2020-12-01-preview')",
 						"type": "Expression"
 					},
 					"connectVia": {
@@ -165,7 +165,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://aia-purview.scan.purview.azure.com/datasources/Braze-ADLS/scans/Scan-07/run?api-version=2020-12-01-preview",
+						"value": "@concat('https://', pipeline().parameters.purview-account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan-name, '/run?api-version=2020-12-01-preview')",
 						"type": "Expression"
 					},
 					"connectVia": {
