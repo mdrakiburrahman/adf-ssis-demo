@@ -33,7 +33,7 @@
 			}
 		],
 		"parameters": {
-			"purview-account": {
+			"purview_account": {
 				"type": "string",
 				"defaultValue": "aia-purview"
 			}
