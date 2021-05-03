@@ -373,6 +373,217 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/test_purview_over_ADF_SHIR_copy1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Calling Purview over Purview PE from ADF SHIR. Purview to Scan Storage Account over Private endpoint and ingest into Purview PE.",
+				"activities": [
+					{
+						"name": "test_purview_over_shir",
+						"type": "WebActivity",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
+								"type": "Expression"
+							},
+							"connectVia": {
+								"referenceName": "CurrentsOnPremIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"method": "GET",
+							"headers": {},
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://purview.azure.net"
+							}
+						}
+					},
+					{
+						"name": "get_scans",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "test_purview_over_shir",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
+								"type": "Expression"
+							},
+							"connectVia": {
+								"referenceName": "CurrentsOnPremIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"method": "GET",
+							"headers": {},
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://purview.azure.net"
+							}
+						}
+					},
+					{
+						"name": "create_sample_scan",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "get_scans",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '?api-version=2020-12-01-preview')",
+								"type": "Expression"
+							},
+							"connectVia": {
+								"referenceName": "CurrentsOnPremIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"method": "PUT",
+							"headers": {},
+							"body": {
+								"value": "@concat('{\"name\":\"', pipeline().parameters.scan_name, '\",\"kind\":\"AdlsGen2Credential\",\"properties\":{\"connectedVia\":{\"referenceName\":\"IntegrationRuntime-aiadsvm01\"},\"credential\":{\"referenceName\":\"ADLS-Braze-SP-ClientKey\",\"credentialType\":\"ServicePrincipal\"},\"scanRulesetType\":\"System\",\"scanRulesetName\":\"AdlsGen2\"}}')",
+								"type": "Expression"
+							},
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://purview.azure.net"
+							}
+						}
+					},
+					{
+						"name": "specify_options",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "create_sample_scan",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '/filters/custom?api-version=2020-12-01-preview')",
+								"type": "Expression"
+							},
+							"connectVia": {
+								"referenceName": "CurrentsOnPremIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"method": "PUT",
+							"headers": {},
+							"body": {
+								"value": "{\n   \"properties\":{\n      \"excludeUriPrefixes\":[\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/landing\"\n      ],\n      \"includeUriPrefixes\":[\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/\",\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/bronze\"\n      ]\n   }\n}",
+								"type": "Expression"
+							},
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://purview.azure.net"
+							}
+						}
+					},
+					{
+						"name": "start_scan",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "specify_options",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '/run?api-version=2020-12-01-preview')",
+								"type": "Expression"
+							},
+							"connectVia": {
+								"referenceName": "CurrentsOnPremIntegrationRuntime",
+								"type": "IntegrationRuntimeReference"
+							},
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"scanLevel": "Full"
+							},
+							"authentication": {
+								"type": "MSI",
+								"resource": "https://purview.azure.net"
+							}
+						}
+					}
+				],
+				"parameters": {
+					"purview_account": {
+						"type": "string",
+						"defaultValue": "aia-purview"
+					},
+					"scan_name": {
+						"type": "string",
+						"defaultValue": "Scan-08"
+					}
+				},
+				"folder": {
+					"name": "Purview-SHIR-demonstration"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/CurrentsOnPremIntegrationRuntime')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -544,217 +755,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]",
 				"[concat(variables('factoryId'), '/linkedServices/FileSystemPackageStore')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/test_purview_over_ADF_SHIR_copy1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Calling Purview over Purview PE from ADF SHIR. Purview to Scan Storage Account over Private endpoint and ingest into Purview PE.",
-				"activities": [
-					{
-						"name": "test_purview_over_shir",
-						"type": "WebActivity",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": {
-								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
-								"type": "Expression"
-							},
-							"connectVia": {
-								"referenceName": "CurrentsOnPremIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"method": "GET",
-							"headers": {},
-							"authentication": {
-								"type": "MSI",
-								"resource": "https://purview.azure.net"
-							}
-						}
-					},
-					{
-						"name": "get_scans",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "test_purview_over_shir",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": {
-								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans?api-version=2020-12-01-preview')",
-								"type": "Expression"
-							},
-							"connectVia": {
-								"referenceName": "CurrentsOnPremIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"method": "GET",
-							"headers": {},
-							"authentication": {
-								"type": "MSI",
-								"resource": "https://purview.azure.net"
-							}
-						}
-					},
-					{
-						"name": "create_sample_scan",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "get_scans",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": {
-								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '?api-version=2020-12-01-preview')",
-								"type": "Expression"
-							},
-							"connectVia": {
-								"referenceName": "CurrentsOnPremIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"method": "PUT",
-							"headers": {},
-							"body": {
-								"value": "@concat('{\\\"name\\\":\\\"', pipeline().parameters.scan_name, '\\\",\\\"kind\\\":\\\"AdlsGen2Credential\\\",\\\"properties\\\":{\\\"connectedVia\\\":{\\\"referenceName\\\":\\\"IntegrationRuntime-aiadsvm01\\\"},\\\"credential\\\":{\\\"referenceName\\\":\\\"ADLS-Braze-SP-ClientKey\\\",\\\"credentialType\\\":\\\"ServicePrincipal\\\"},\\\"scanRulesetType\\\":\\\"System\\\",\\\"scanRulesetName\\\":\\\"AdlsGen2\\\"}}')",
-								"type": "Expression"
-							},
-							"authentication": {
-								"type": "MSI",
-								"resource": "https://purview.azure.net"
-							}
-						}
-					},
-					{
-						"name": "specify_options",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "create_sample_scan",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": {
-								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '/filters/custom?api-version=2020-12-01-preview')",
-								"type": "Expression"
-							},
-							"connectVia": {
-								"referenceName": "CurrentsOnPremIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"method": "PUT",
-							"headers": {},
-							"body": {
-								"value": "{\n   \"properties\":{\n      \"excludeUriPrefixes\":[\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/landing\"\n      ],\n      \"includeUriPrefixes\":[\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/\",\n         \"https://aiabrazev2pocadls.dfs.core.windows.net/bronze\"\n      ]\n   }\n}",
-								"type": "Expression"
-							},
-							"authentication": {
-								"type": "MSI",
-								"resource": "https://purview.azure.net"
-							}
-						}
-					},
-					{
-						"name": "start_scan",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "specify_options",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": {
-								"value": "@concat('https://', pipeline().parameters.purview_account, '.scan.purview.azure.com/datasources/Braze-ADLS/scans/', pipeline().parameters.scan_name, '/run?api-version=2020-12-01-preview')",
-								"type": "Expression"
-							},
-							"connectVia": {
-								"referenceName": "CurrentsOnPremIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"method": "POST",
-							"headers": {},
-							"body": {
-								"scanLevel": "Full"
-							},
-							"authentication": {
-								"type": "MSI",
-								"resource": "https://purview.azure.net"
-							}
-						}
-					}
-				],
-				"parameters": {
-					"purview_account": {
-						"type": "string",
-						"defaultValue": "aia-purview"
-					},
-					"scan_name": {
-						"type": "string",
-						"defaultValue": "Scan-08"
-					}
-				},
-				"folder": {
-					"name": "Purview-SHIR-demonstration"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/CurrentsOnPremIntegrationRuntime')]"
 			]
 		},
 		{
