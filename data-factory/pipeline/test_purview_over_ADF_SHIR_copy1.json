@@ -96,7 +96,7 @@
 					},
 					"method": "PUT",
 					"body": {
-						"value": "@concat('{\\\"name\\\":\\\"', pipeline().parameters.scan_name, '\\\",\\\"kind\\\":\\\"AdlsGen2Credential\\\",\\\"properties\\\":{\\\"connectedVia\\\":{\\\"referenceName\\\":\\\"IntegrationRuntime-aiadsvm01\\\"},\\\"credential\\\":{\\\"referenceName\\\":\\\"ADLS-Braze-SP-ClientKey\\\",\\\"credentialType\\\":\\\"ServicePrincipal\\\"},\\\"scanRulesetType\\\":\\\"System\\\",\\\"scanRulesetName\\\":\\\"AdlsGen2\\\"}}')",
+						"value": "@concat('{\"name\":\"', pipeline().parameters.scan_name, '\",\"kind\":\"AdlsGen2Credential\",\"properties\":{\"connectedVia\":{\"referenceName\":\"IntegrationRuntime-aiadsvm01\"},\"credential\":{\"referenceName\":\"ADLS-Braze-SP-ClientKey\",\"credentialType\":\"ServicePrincipal\"},\"scanRulesetType\":\"System\",\"scanRulesetName\":\"AdlsGen2\"}}')",
 						"type": "Expression"
 					},
 					"authentication": {
