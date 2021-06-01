@@ -1,6 +1,0 @@
-{
-	"name": "ContainerizedintegrationRuntime",
-	"properties": {
-		"type": "SelfHosted"
-	}
-}
