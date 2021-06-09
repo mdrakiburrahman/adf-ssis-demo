@@ -373,7 +373,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/4-AE_and_DataLake_2_SQLMI_via_EmbeddedPackage_copy1')]",
+			"name": "[concat(parameters('factoryName'), '/4-AE_and_DataLake_2_SQLMI_via_EmbeddedPackage')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
