@@ -419,7 +419,7 @@
 									"value": "SELECT TOP(1) * FROM AdventureWorks2019.Person.EmailAddress"
 								},
 								"pConnStr": {
-									"value": "SERVER=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};DATABASE=AdventureWorks2019;Trusted_Connection=No;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=72b8dc93-6305-4fe2-aed7-d73f5837b008;KeyStoreSecret=~fZ~043-ien18yI.tPlTNwCrmgwsg58~Un;"
+									"value": "SERVER=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 17 for SQL Server};DATABASE=AdventureWorks2019;Trusted_Connection=No;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=72b8dc93-6305-4fe2-aed7-d73f5837b008;KeyStoreSecret=~fZ~043-ien18yI.tPlTNwCrmgwsg58~Un;"
 								}
 							},
 							"projectConnectionManagers": {},
