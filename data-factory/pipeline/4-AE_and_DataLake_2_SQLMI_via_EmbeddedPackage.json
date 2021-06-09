@@ -159,8 +159,12 @@
 							},
 							"Password": {
 								"value": {
-									"type": "SecureString",
-									"value": "**********"
+									"type": "AzureKeyVaultSecret",
+									"store": {
+										"referenceName": "AzureKeyVault",
+										"type": "LinkedServiceReference"
+									},
+									"secretName": "SSIS-currents-Password"
 								}
 							},
 							"RetainSameConnection": {
