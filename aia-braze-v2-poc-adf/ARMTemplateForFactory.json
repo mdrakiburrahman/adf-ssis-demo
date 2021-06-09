@@ -2699,7 +2699,7 @@
 										"value": "AdventureWorks2019"
 									},
 									"Password": {
-										"value": "acntorPRESTO!"
+										"value": "acntorPRESTO!1234"
 									},
 									"RetainSameConnection": {
 										"value": "False"
