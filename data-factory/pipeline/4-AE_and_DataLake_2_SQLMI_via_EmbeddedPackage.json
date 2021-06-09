@@ -158,7 +158,10 @@
 								"value": "AdventureWorks2019"
 							},
 							"Password": {
-								"value": "acntorPRESTO!1234"
+								"value": {
+									"type": "SecureString",
+									"value": "**********"
+								}
 							},
 							"RetainSameConnection": {
 								"value": "False"
