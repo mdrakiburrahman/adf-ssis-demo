@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">aiadsvm01</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="y/rsl/+joL8=" SSIS:IV="kG5Z+0rg8kRveOxiz8Yilg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">ErjiGHMkcGb38hoU+aXrSaDzAvHDZywOwtBIQ5WQ6PV1eLTtRYqOweF7l0SxdaHZRvPK4KfyxoD18fw3fbJXM0pWdVtRkNcKJ0S1vUjADUJ+A1DXr3AuBKv7q8Xlq+fju96ETapTwK2t2OJ9xB/IeIBP5u1PRD2ljiwdL8FU6nt9jNl1ia0FSEbA7vnplJJG</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="Ay7HXedddno=" SSIS:IV="DA6RN2LtD1iml5kmiMTEmw==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">A3YnYfqjx6KeuQzmA8myzvgt6TX98UG6R5yDY3xKG3+sLufyEyuv5hwYN+Y+VmCS4d1QY8DGWPmo+IdxqZg8Abp/qU8ntZTKCQEBGbV7FCCipqxru3gOwibSsgmj/q9jDo7qequiP+HgU0u++8GAOFx3vv/0TD+POUfh4OZizVYnW6CPQX5MmAoff6IdZhG4</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,16 +42,58 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">43</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">78</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{54B12523-C6F7-4E0E-8BAF-7801188262DC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EC643218-1355-4025-8918-17C38F6B643F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="pConnStr">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A9376D01-E0F1-40DA-AC50-8ED6D165AFC2}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SERVER=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 17 for SQL Server};DATABASE=AdventureWorks2019;Trusted_Connection=No;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=72b8dc93-6305-4fe2-aed7-d73f5837b008;KeyStoreSecret=~fZ~043-ien18yI.tPlTNwCrmgwsg58~Un;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="pDBPwd">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{B13FB59B-A6B1-4658-9166-3EC7D073D4E3}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value" SSIS:Sensitive="1" SSIS:Salt="/VXAWuH7I8Y=" SSIS:IV="WKlkhF3zrY5XVUeJTVpxeg==" SSIS:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc">O/w2JWYF1UD6cBwj58UDOk0MrDADejesc8VFXcO/fxPx/jicx1mu0Lgw9OM30Cymmj32xLPu4fZlnolHJ0JmuAwWfhdjlZvwg3Q375Z6S9T60Kt2yZZr0iwQN+3xYp/EdDj5xjkrElnmswgwL0NtlY81THj16YZJi5cgQ/8nx878Kj6sBAKJvrSf002eg2l4</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="pSQL">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{60B12DD2-1718-4052-8CFA-0517FF8E5D4D}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SELECT TOP(2) * FROM AdventureWorks2019.Person.EmailAddress</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="CM.AdventureWorks2019_ODBC_AE.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
