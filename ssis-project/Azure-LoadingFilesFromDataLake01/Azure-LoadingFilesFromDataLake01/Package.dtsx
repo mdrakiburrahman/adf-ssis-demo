@@ -12,8 +12,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="89"
-  DTS:VersionGUID="{BACFBBDD-523D-46B6-8AD3-3063B3C6D3C0}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{026A63AF-36C7-4FEC-8179-A5C3435161D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,12 +27,12 @@
           DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=AdventureWorks2019;trusted_connection=No;columnencryption=Enabled;keystoreauthentication=KeyVaultClientSecret;keystoreprincipalid=72b8dc93-6305-4fe2-aed7-d73f5837b008;keystoresecret=~fZ~043-ien18yI.tPlTNwCrmgwsg58~Un;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="guHgSVqxia8="
-            IV="xMBmfpY8I9KF8vzllMrXhw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="7vjIc6pZPWM="
+            IV="VfBUxVyMBIPKE2bgHX+L9w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>xMBmfpY8I9KF8vzllMrXh0HBfJT7ydu197scUaAc/K+ovYvhS1x4/vRzIIK8fLFxCLLQVbVWxbKbCLh4oRHzq3l5K+7pGAmZxmx0kq6IqkAM3TswAXdmrZDN8bo4qPKImaTeABN1LAwNIWlJXm6+ICeWy5PW88kXAmOwBnVEM6Nykk0buGahcdWbF9pvlE5F</CipherValue>
+              <CipherValue>VfBUxVyMBIPKE2bgHX+L9+LhvDdQt0s4pUjKxhVUtzPBqc7PixVbPFhK5aFbwsJpvkmwybKHVTU78PuvyYPPaQWgDIVIuet1tDPI1XJlMpbgafFRFb9WRKmeJK3YXKvmWi1Ali2n8qrOrlnkz8i6hPY4r2ecOMkjqrc4vAO5ln1P1VjHJQPic3rxPBR1AOHX</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="cikncAjDYNQ="
-            IV="M3xJW6WNsy+Vwl+3pE2PuA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="9dBE5A4DtW0="
+            IV="hy8FRYexDjG+Lt7lY+Hvsw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>M3xJW6WNsy+Vwl+3pE2PuHVkoI6NZogDu+kSI+hnGeR4QDIJ2ZWchfCBo/rogUyGYILI4OgbpeaxiNra6/rTe/G1RnPuaGTtASD21GFiy2xf8TFWlopNgoxE14Cjh1QwcoUhPN284868PfZvFawNU5I9bEULd5QJilJMaS6zzkmlNKEOUK1j4PD4ICi9szOy</CipherValue>
+              <CipherValue>hy8FRYexDjG+Lt7lY+Hvs+/qiHAmg0ZDgQilfT13FFCyt21ZhLggGzYIYmjDFKVJ7xsxMvb7NpMvm2x0R8S2tBv1nM2gdc7X/YKPx5EyRSSqIk7S5OCYbo9+kwZWpabILrSvmQCyDOmALQEg7mCMKXq7wOCfcM1G+uLjbiV2BLTTrSFv41iUWHFQUt01miLM</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="u/Y1p+YapzI="
-            IV="X8PBAPwBq2jfAiS5Mokjbw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="SIP/gXY3tjg="
+            IV="uzE5A/cAdtdK42QldXeRVQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>X8PBAPwBq2jfAiS5Mokjb6j7DzyprOMv2Om3UdAmTd/CtmAWVTXxtAx7OfYOP70N3BfPZTzR9MobSYlHFH13tS2tl1BlahgZpT8nk82aW4XEChQKMFeqzA0ROHFYJYwUZhPrSDhYKwgcHvhUEcrsslQm8/rRaqYSrh5y6Q122dNVFoDUC5L6ig3RjT/Q2Vqs</CipherValue>
+              <CipherValue>uzE5A/cAdtdK42QldXeRVQFwW2620B5lvXtqf0iyOd/XBkFvjjGnCNl7hUrpZCbL1InwqpONbFjrnVt574D5Z2DJz/GIVtIXDmAI+27wE3eQTmdKewS4YE8WjGnUTRpSQfmSuPkVAdvgqTS64K4SDduJ2G72waL2F0qbyURYLd30DVZjtdu/+Y2OsJRpPPSc</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -91,12 +91,12 @@
           ConnectByProxy="False">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="r2fENH+vFLg="
-            IV="jN0kqK9aSFoH5VtYc8SmaA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YKrwgsSNp3w="
+            IV="6bZ1uCJ3OcftRBdCoVWnJA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>jN0kqK9aSFoH5VtYc8SmaO4AxYTDa80a9+7X9TjszcGYQIuXm05nYwaWf/3ltZ4klmLYgUeQbxOcAEwBIYgUB6YAcqUnG3ptOLP7MbzIek4k+0M09lRi18nj5ST8RgIATduyQwBOfJZkHrgKWMYBogop8B9ez/G/GblfrgkbLgvpHZ/IlScNLdNWWCLusOvj</CipherValue>
+              <CipherValue>6bZ1uCJ3OcftRBdCoVWnJNW23xmdqiEVXd0xUm+ImVkQEGOwbjKFuV76Kb85jGJS+HkH4dt6mXjFUmcg24k8XCdrlLQApHk4DB6DjZHu0Ci142ehKJ+koKwn0jG+XQ2S+PwqD/Z7/Jn2FfXZp7snp2ojm+aCQBvi+y6MgtlD8QLBctpP4s13WQ2lIMahGao/</CipherValue>
             </CipherData>
           </EncryptedData>
         </AzureStorageConnectionManager>
@@ -134,13 +134,13 @@
       <DTS:Property
         DTS:Name="ParameterValue">
         <EncryptedData
-          IV="T1UcmJpFUtYt2aIzFKgIQw=="
-          Salt="QprIZWdm0lI="
+          IV="IieTFTbSzNTv1dvLZy7qXg=="
+          Salt="8AXcyYDSDcE="
           Type="http://www.w3.org/2001/04/xmlenc#Element" xmlns="http://www.w3.org/2001/04/xmlenc#">
           <EncryptionMethod
             Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
           <CipherData>
-            <CipherValue>T1UcmJpFUtYt2aIzFKgIQ0MDQ3/t1JMfqrKeGAKMz9l4eCCt9Twel9vbY5X6mxeh/HyTRvYCHQMSovrftms6c+Lm6SVxXam24wSY+AlYqhxRJG1rMUqOXmugKCakzlYfTwZ2F+rb7HpCYMN172rzwiN7Ngk681gbHUw6QhcEu3bfpmXrkh+ORPvRynyze4q5DikfCl1mHfufcRZA+fIjFg==</CipherValue>
+            <CipherValue>IieTFTbSzNTv1dvLZy7qXqHk5cewNG1b2VpCxhlFCFyMuE0Wi2nd54LiMHPMD+AvQ+jiNMp/0beIUfQN8OY9jHRa2QH8tvNGihRLD57+GKmmsS1AJwH/f8pwTlNr+SWCnAdjyNWMa5WmsDztqvK9nHIkfJ8c75ga15zBgCHQKaODR21YoT7+SVyQ0imD1aixiHJsoY2OmTdr8ba+x0cPwQ==</CipherValue>
           </CipherData>
         </EncryptedData>
       </DTS:Property>
@@ -1660,13 +1660,13 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\ODBC Script Task"
+          DTS:refId="Package\Foreach Loop Container\ODBC Script Task to Blob"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
           DTS:DTSID="{A1033083-3E25-4095-8EC8-07873EEA5292}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="ODBC Script Task"
+          DTS:ObjectName="ODBC Script Task to Blob"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:LoggingOptions
@@ -1679,91 +1679,35 @@
               Language="CSharp"
               ReadOnlyVariables="User::vConnStr,User::vDBPwd,User::vSQL">
               <ProjectItem
-                Name="ST_77198bd188ad45428c54892f06a12366.csproj"
-                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4D07194D-2762-43F1-B452-801A42C4595F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_77198bd188ad45428c54892f06a12366</RootNamespace>
-    <AssemblyName>ST_77198bd188ad45428c54892f06a12366</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
-        <Host Name="ScriptTask" />
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST140</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_77198bd188ad45428c54892f06a12366")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_77198bd188ad45428c54892f06a12366")]
+[assembly: AssemblyCopyright("Copyright @  2021")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -1884,34 +1828,14 @@
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_77198bd188ad45428c54892f06a12366.Properties.Settings.get_Default():ST_77198bd188ad45428c54892f06a12366.Properties.Sett" +
-    "ings")]
-
-namespace ST_77198bd188ad45428c54892f06a12366.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2105,44 +2029,120 @@ namespace ST_77198bd188ad45428c54892f06a12366
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_77198bd188ad45428c54892f06a12366")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_77198bd188ad45428c54892f06a12366")]
-[assembly: AssemblyCopyright("Copyright @  2021")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_77198bd188ad45428c54892f06a12366.Properties.Settings.get_Default():ST_77198bd188ad45428c54892f06a12366.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_77198bd188ad45428c54892f06a12366.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="ST_77198bd188ad45428c54892f06a12366.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D07194D-2762-43F1-B452-801A42C4595F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_77198bd188ad45428c54892f06a12366</RootNamespace>
+    <AssemblyName>ST_77198bd188ad45428c54892f06a12366</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2374,7 +2374,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:From="Package\Foreach Loop Container\Execute SQL Task - SQL MI ODBC"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Foreach Loop Container\ODBC Script Task" />
+          DTS:To="Package\Foreach Loop Container\ODBC Script Task to Blob" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
@@ -2415,8 +2415,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           Id="Package\Foreach Loop Container\Flexible File Task - Delete"
           TopLeft="94,168" />
         <NodeLayout
-          Size="169,42"
-          Id="Package\Foreach Loop Container\ODBC Script Task"
+          Size="206,42"
+          Id="Package\Foreach Loop Container\ODBC Script Task to Blob"
           TopLeft="103,353" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
@@ -2486,18 +2486,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
-          TopLeft="191.25,284">
+          TopLeft="195,284">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69"
+              EndConnector="11,69"
               Start="0,0"
-              End="0,61.5">
+              End="11,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.5" />
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="7,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,34.5"
+                    Point2="11,34.5"
+                    Point3="11,38.5" />
+                  <mssgle:LineSegment
+                    End="11,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
