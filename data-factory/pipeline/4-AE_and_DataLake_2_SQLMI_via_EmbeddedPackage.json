@@ -34,7 +34,10 @@
 					},
 					"packageParameters": {
 						"pDBPwd": {
-							"value": "acntorPRESTO!1234"
+							"value": {
+								"type": "SecureString",
+								"value": "**********"
+							}
 						},
 						"pSQL": {
 							"value": "SELECT TOP(20) * FROM AdventureWorks2019.Person.EmailAddress"
