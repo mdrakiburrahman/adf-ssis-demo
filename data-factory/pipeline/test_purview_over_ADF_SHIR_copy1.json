@@ -190,7 +190,7 @@
 			},
 			"scan_name": {
 				"type": "string",
-				"defaultValue": "Scan-08"
+				"defaultValue": "Scan-01"
 			}
 		},
 		"folder": {
