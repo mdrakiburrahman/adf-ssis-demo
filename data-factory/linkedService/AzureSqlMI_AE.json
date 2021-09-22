@@ -1,0 +1,24 @@
+{
+	"name": "AzureSqlMI_AE",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlMI",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=aiasqlmisvr01.a1e189469806.database.windows.net;initial catalog=AE_POC;user id=boor",
+			"alwaysEncryptedSettings": {
+				"alwaysEncryptedAkvAuthType": "ServicePrincipal",
+				"servicePrincipalId": "72b8dc93-6305-4fe2-aed7-d73f5837b008",
+				"servicePrincipalKey": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			},
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwNjMyOTJjYS1mMzc4LTQwN2YtOWJmZi1lZmIxY2RhOGVkZDAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "DATFileIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
