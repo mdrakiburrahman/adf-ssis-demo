@@ -23,13 +23,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileSystemPackageStore'"
 		},
-		"Synapse_AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
-		},
 		"SHIR_Local_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SHIR_Local'"
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -51,6 +51,14 @@
 			"type": "string",
 			"defaultValue": "Azure\\aiasqlinsightsstorage"
 		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "boor"
+		},
 		"adfmetadata_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "adfmetadata-connString"
@@ -65,14 +73,6 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"type": "secureString"
-		},
-		"SHIR_Local_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\AE_POC\\Data"
-		},
-		"SHIR_Local_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "boor"
 		}
 	},
 	"variables": {
@@ -2859,6 +2859,144 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/CSV-to-SQL-MI')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "lkp_getsrcmetadata",
+						"description": "Get load metadata from SQL MI metadata table",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlMISource",
+								"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, targetschema, targettable\nFROM dbo.source_metadata",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "AzureSqlMI_AE",
+								"type": "DatasetReference",
+								"parameters": {
+									"StagingTable": "source_metadata",
+									"StagingSchema": "dbo"
+								}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "ForEach_Copy_Src_Activity",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "lkp_getsrcmetadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('lkp_getsrcmetadata').output.value",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Copy CSV_to_SQLMI",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "DelimitedTextSource",
+											"storeSettings": {
+												"type": "FileServerReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											},
+											"formatSettings": {
+												"type": "DelimitedTextReadSettings"
+											}
+										},
+										"sink": {
+											"type": "SqlMISink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "CSV",
+											"type": "DatasetReference",
+											"parameters": {
+												"sourcepath": {
+													"value": "@item().sourcepath",
+													"type": "Expression"
+												},
+												"columndelimiter": {
+													"value": "@item().columndelimiter",
+													"type": "Expression"
+												},
+												"sourcefile": {
+													"value": "@item().sourcefile",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "AzureSqlMI_AE",
+											"type": "DatasetReference",
+											"parameters": {
+												"StagingTable": {
+													"value": "@item().targettable",
+													"type": "Expression"
+												},
+												"StagingSchema": {
+													"value": "@item().targetschema",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "CSV-to-SQL-MI-AE-POC"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzureSqlMI_AE')]",
+				"[concat(variables('factoryId'), '/datasets/CSV')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/test_purview_over_ADF_SHIR_copy1')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -3071,6 +3209,100 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/CurrentsOnPremIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlMI_AE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlMI_AE",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"StagingTable": {
+						"type": "string",
+						"defaultValue": "source_metadata"
+					},
+					"StagingSchema": {
+						"type": "string",
+						"defaultValue": "dbo"
+					}
+				},
+				"folder": {
+					"name": "AE_POC"
+				},
+				"annotations": [],
+				"type": "AzureSqlMITable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@dataset().StagingSchema",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().StagingTable",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlMI_AE')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CSV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SHIR_Local",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"sourcepath": {
+						"type": "string",
+						"defaultValue": "Table_1"
+					},
+					"columndelimiter": {
+						"type": "string",
+						"defaultValue": ","
+					},
+					"sourcefile": {
+						"type": "string",
+						"defaultValue": "Table_1_1.csv"
+					}
+				},
+				"folder": {
+					"name": "AE_POC"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "FileServerLocation",
+						"fileName": {
+							"value": "@dataset().sourcefile",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().sourcepath",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": {
+						"value": "@dataset().columndelimiter",
+						"type": "Expression"
+					},
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SHIR_Local')]"
 			]
 		},
 		{
@@ -3314,6 +3546,31 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SHIR_Local')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Bunch of CSV files to load into SQL MI over Always Encrypted",
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('SHIR_Local_properties_typeProperties_host')]",
+					"userId": "[parameters('SHIR_Local_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SHIR_Local_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "DATFileIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Synapse_AzureBlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -3505,171 +3762,6 @@
 			"apiVersion": "2018-06-01",
 			"properties": {},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SHIR_Local')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Bunch of CSV files to load into SQL MI over Always Encrypted",
-				"annotations": [],
-				"type": "FileServer",
-				"typeProperties": {
-					"host": "[parameters('SHIR_Local_properties_typeProperties_host')]",
-					"userId": "[parameters('SHIR_Local_properties_typeProperties_userId')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SHIR_Local_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "DATFileIR",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CSV')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SHIR_Local",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "AE_POC"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "FileServerLocation",
-						"fileName": "Table_1_1.csv",
-						"folderPath": "Table_1"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SHIR_Local')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CSV-to-SQL-MI')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "lkp_getsrcmetadata",
-						"description": "Get load metadata from SQL MI metadata table",
-						"type": "Lookup",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "SqlMISource",
-								"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, rowdelimiter, targetschema, targettable\nFROM dbo.source_metadata",
-								"partitionOption": "None"
-							},
-							"dataset": {
-								"referenceName": "AzureSqlMI_AE",
-								"type": "DatasetReference",
-								"parameters": {
-									"StagingTable": "source_metadata",
-									"StagingSchema": "dbo"
-								}
-							},
-							"firstRowOnly": false
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "CSV-to-SQL-MI-AE-POC"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/AzureSqlMI_AE')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlMI_AE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlMI_AE",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"StagingTable": {
-						"type": "string",
-						"defaultValue": "source_metadata"
-					},
-					"StagingSchema": {
-						"type": "string",
-						"defaultValue": "dbo"
-					}
-				},
-				"folder": {
-					"name": "AE_POC"
-				},
-				"annotations": [],
-				"type": "AzureSqlMITable",
-				"schema": [],
-				"typeProperties": {
-					"schema": {
-						"value": "@dataset().StagingSchema",
-						"type": "Expression"
-					},
-					"table": {
-						"value": "@dataset().StagingTable",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlMI_AE')]"
-			]
 		}
 	]
 }

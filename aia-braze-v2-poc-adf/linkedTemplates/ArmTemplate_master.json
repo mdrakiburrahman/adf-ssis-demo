@@ -23,13 +23,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileSystemPackageStore'"
 		},
-		"Synapse_AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
-		},
 		"SHIR_Local_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SHIR_Local'"
+		},
+		"Synapse_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -51,6 +51,14 @@
 			"type": "string",
 			"defaultValue": "Azure\\aiasqlinsightsstorage"
 		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "boor"
+		},
 		"adfmetadata_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "adfmetadata-connString"
@@ -65,14 +73,6 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"type": "secureString"
-		},
-		"SHIR_Local_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\AE_POC\\Data"
-		},
-		"SHIR_Local_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "boor"
 		},
 		"containerUri": {
 			"type": "string",
@@ -116,6 +116,9 @@
 					"AzureSqlMI_AE_connectionString": {
 						"value": "[parameters('AzureSqlMI_AE_connectionString')]"
 					},
+					"SHIR_Local_password": {
+						"value": "[parameters('SHIR_Local_password')]"
+					},
 					"AzureKeyVault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
 					},
@@ -131,17 +134,14 @@
 					"Currents_Synapse_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Currents_Synapse_properties_typeProperties_connectionString_secretName')]"
 					},
+					"SHIR_Local_properties_typeProperties_host": {
+						"value": "[parameters('SHIR_Local_properties_typeProperties_host')]"
+					},
+					"SHIR_Local_properties_typeProperties_userId": {
+						"value": "[parameters('SHIR_Local_properties_typeProperties_userId')]"
+					},
 					"adfmetadata_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('adfmetadata_properties_typeProperties_connectionString_secretName')]"
-					},
-					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
-						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
-					},
-					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
-						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
-					},
-					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
-						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
 					}
 				}
 			},
@@ -161,14 +161,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"SHIR_Local_password": {
-						"value": "[parameters('SHIR_Local_password')]"
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]"
 					},
-					"SHIR_Local_properties_typeProperties_host": {
-						"value": "[parameters('SHIR_Local_properties_typeProperties_host')]"
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]"
 					},
-					"SHIR_Local_properties_typeProperties_userId": {
-						"value": "[parameters('SHIR_Local_properties_typeProperties_userId')]"
+					"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
+						"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
 					}
 				}
 			},

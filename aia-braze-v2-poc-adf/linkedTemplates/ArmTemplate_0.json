@@ -27,6 +27,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI_AE'"
 		},
+		"SHIR_Local_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SHIR_Local'"
+		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://aia-braze-v2-poc-akv.vault.azure.net/"
@@ -47,20 +51,17 @@
 			"type": "string",
 			"defaultValue": "synapse-connString"
 		},
-		"adfmetadata_properties_typeProperties_connectionString_secretName": {
+		"SHIR_Local_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "adfmetadata-connString"
+			"defaultValue": "C:\\AE_POC\\Data"
 		},
-		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint": {
-			"type": "string",
-			"defaultValue": "aiasqlmisvr01.a1e189469806.database.windows.net"
-		},
-		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName": {
+		"SHIR_Local_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "boor"
 		},
-		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
-			"type": "secureString"
+		"adfmetadata_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adfmetadata-connString"
 		}
 	},
 	"variables": {
@@ -918,6 +919,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SHIR_Local')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Bunch of CSV files to load into SQL MI over Always Encrypted",
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('SHIR_Local_properties_typeProperties_host')]",
+					"userId": "[parameters('SHIR_Local_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SHIR_Local_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "DATFileIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/adfmetadata')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -963,59 +989,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "Managed",
-				"typeProperties": {
-					"computeProperties": {
-						"location": "East US",
-						"nodeSize": "Standard_D1_v2",
-						"numberOfNodes": 1,
-						"maxParallelExecutionsPerNode": 8,
-						"vNetProperties": {
-							"vNetId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Network/virtualNetworks/aiatelegrafvnet",
-							"subnet": "ADF_IR_subnet"
-						}
-					},
-					"ssisProperties": {
-						"catalogInfo": {
-							"catalogServerEndpoint": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogServerEndpoint')]",
-							"catalogAdminUserName": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminUserName')]",
-							"catalogAdminPassword": {
-								"type": "SecureString",
-								"value": "[parameters('SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword')]"
-							},
-							"catalogPricingTier": null
-						},
-						"edition": "Standard",
-						"licenseType": "BasePrice",
-						"packageStores": [
-							{
-								"name": "myAzureFilesPackageStore",
-								"packageStoreLinkedService": {
-									"referenceName": "AzureFileSystemPackageStore",
-									"type": "LinkedServiceReference"
-								}
-							},
-							{
-								"name": "myFileSystemPackageStore",
-								"packageStoreLinkedService": {
-									"referenceName": "FileSystemPackageStore",
-									"type": "LinkedServiceReference"
-								}
-							}
-						]
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]",
-				"[concat(variables('factoryId'), '/linkedServices/FileSystemPackageStore')]"
 			]
 		}
 	]

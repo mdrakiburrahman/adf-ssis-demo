@@ -509,7 +509,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlMISource",
-								"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, rowdelimiter, targetschema, targettable\nFROM dbo.source_metadata",
+								"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, targetschema, targettable\nFROM dbo.source_metadata",
 								"partitionOption": "None"
 							},
 							"dataset": {
@@ -521,6 +521,93 @@
 								}
 							},
 							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "ForEach_Copy_Src_Activity",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "lkp_getsrcmetadata",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('lkp_getsrcmetadata').output.value",
+								"type": "Expression"
+							},
+							"activities": [
+								{
+									"name": "Copy CSV_to_SQLMI",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "DelimitedTextSource",
+											"storeSettings": {
+												"type": "FileServerReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											},
+											"formatSettings": {
+												"type": "DelimitedTextReadSettings"
+											}
+										},
+										"sink": {
+											"type": "SqlMISink"
+										},
+										"enableStaging": false
+									},
+									"inputs": [
+										{
+											"referenceName": "CSV",
+											"type": "DatasetReference",
+											"parameters": {
+												"sourcepath": {
+													"value": "@item().sourcepath",
+													"type": "Expression"
+												},
+												"columndelimiter": {
+													"value": "@item().columndelimiter",
+													"type": "Expression"
+												},
+												"sourcefile": {
+													"value": "@item().sourcefile",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "AzureSqlMI_AE",
+											"type": "DatasetReference",
+											"parameters": {
+												"StagingTable": {
+													"value": "@item().targettable",
+													"type": "Expression"
+												},
+												"StagingSchema": {
+													"value": "@item().targetschema",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
 						}
 					}
 				],

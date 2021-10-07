@@ -17,10 +17,10 @@
 		"FileSystemPackageStore_password": {
 			"value": ""
 		},
-		"Synapse_AzureBlobStorage_connectionString": {
+		"SHIR_Local_password": {
 			"value": ""
 		},
-		"SHIR_Local_password": {
+		"Synapse_AzureBlobStorage_connectionString": {
 			"value": ""
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
@@ -38,6 +38,12 @@
 		"FileSystemPackageStore_properties_typeProperties_userId": {
 			"value": "Azure\\aiasqlinsightsstorage"
 		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"value": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"value": "boor"
+		},
 		"adfmetadata_properties_typeProperties_connectionString_secretName": {
 			"value": "adfmetadata-connString"
 		},
@@ -49,12 +55,6 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"value": ""
-		},
-		"SHIR_Local_properties_typeProperties_host": {
-			"value": "C:\\AE_POC\\Data"
-		},
-		"SHIR_Local_properties_typeProperties_userId": {
-			"value": "boor"
 		}
 	}
 }
