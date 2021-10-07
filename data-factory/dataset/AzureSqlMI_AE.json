@@ -1,0 +1,35 @@
+{
+	"name": "AzureSqlMI_AE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlMI_AE",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"StagingTable": {
+				"type": "string",
+				"defaultValue": "source_metadata"
+			},
+			"StagingSchema": {
+				"type": "string",
+				"defaultValue": "dbo"
+			}
+		},
+		"folder": {
+			"name": "AE_POC"
+		},
+		"annotations": [],
+		"type": "AzureSqlMITable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().StagingSchema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().StagingTable",
+				"type": "Expression"
+			}
+		}
+	}
+}

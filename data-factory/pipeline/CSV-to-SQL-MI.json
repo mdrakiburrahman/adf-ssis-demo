@@ -1,0 +1,41 @@
+{
+	"name": "CSV-to-SQL-MI",
+	"properties": {
+		"activities": [
+			{
+				"name": "lkp_getsrcmetadata",
+				"description": "Get load metadata from SQL MI metadata table",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlMISource",
+						"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, rowdelimiter, targetschema, targettable\nFROM dbo.source_metadata",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlMI_AE",
+						"type": "DatasetReference",
+						"parameters": {
+							"StagingTable": "source_metadata",
+							"StagingSchema": "dbo"
+						}
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"folder": {
+			"name": "CSV-to-SQL-MI-AE-POC"
+		},
+		"annotations": []
+	}
+}

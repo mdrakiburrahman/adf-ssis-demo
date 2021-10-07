@@ -1,0 +1,45 @@
+{
+	"name": "CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SHIR_Local",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "AE_POC"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Table_1_1.csv",
+				"folderPath": "Table_1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
