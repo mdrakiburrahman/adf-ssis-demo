@@ -18,7 +18,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlMISource",
-						"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, rowdelimiter, targetschema, targettable\nFROM dbo.source_metadata",
+						"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, targetschema, targettable\nFROM dbo.source_metadata",
 						"partitionOption": "None"
 					},
 					"dataset": {
