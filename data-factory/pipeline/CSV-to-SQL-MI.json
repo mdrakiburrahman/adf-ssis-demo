@@ -84,9 +84,18 @@
 									"referenceName": "CSV",
 									"type": "DatasetReference",
 									"parameters": {
-										"sourcepath": "Table_1",
-										"columndelimiter": ",",
-										"sourcefile": "Table_1_1.csv"
+										"sourcepath": {
+											"value": "@item().sourcepath",
+											"type": "Expression"
+										},
+										"columndelimiter": {
+											"value": "@item().columndelimiter",
+											"type": "Expression"
+										},
+										"sourcefile": {
+											"value": "@item().sourcefile",
+											"type": "Expression"
+										}
 									}
 								}
 							],
@@ -95,8 +104,14 @@
 									"referenceName": "AzureSqlMI_AE",
 									"type": "DatasetReference",
 									"parameters": {
-										"StagingTable": "source_metadata",
-										"StagingSchema": "dbo"
+										"StagingTable": {
+											"value": "@item().targettable",
+											"type": "Expression"
+										},
+										"StagingSchema": {
+											"value": "@item().targetschema",
+											"type": "Expression"
+										}
 									}
 								}
 							]
