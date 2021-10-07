@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('lkp_getsrcmetadata').output",
+						"value": "@activity('lkp_getsrcmetadata').output.value",
 						"type": "Expression"
 					},
 					"activities": [
