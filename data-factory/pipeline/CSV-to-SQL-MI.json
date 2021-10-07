@@ -31,6 +31,19 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEach_Copy_Src_Activity",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "lkp_getsrcmetadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
 			}
 		],
 		"folder": {
