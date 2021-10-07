@@ -17,10 +17,6 @@
 			"sourcefile": {
 				"type": "string",
 				"defaultValue": "Table_1_1.csv"
-			},
-			"rowdelimiter": {
-				"type": "string",
-				"defaultValue": "\\r\\n"
 			}
 		},
 		"folder": {
