@@ -566,7 +566,11 @@
 											}
 										},
 										"sink": {
-											"type": "SqlMISink"
+											"type": "SqlMISink",
+											"preCopyScript": {
+												"value": "TRUNCATE TABLE @{item().targettable}.@{item().targettable}",
+												"type": "Expression"
+											}
 										},
 										"enableStaging": false
 									},
