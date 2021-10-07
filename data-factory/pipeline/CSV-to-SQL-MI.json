@@ -75,7 +75,11 @@
 									}
 								},
 								"sink": {
-									"type": "SqlMISink"
+									"type": "SqlMISink",
+									"preCopyScript": {
+										"value": "TRUNCATE TABLE @{item().TableName}.@{item().TableName}",
+										"type": "Expression"
+									}
 								},
 								"enableStaging": false
 							},
