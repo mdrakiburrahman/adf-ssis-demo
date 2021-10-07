@@ -77,7 +77,7 @@
 								"sink": {
 									"type": "SqlMISink",
 									"preCopyScript": {
-										"value": "TRUNCATE TABLE @{item().TableName}.@{item().TableName}",
+										"value": "TRUNCATE TABLE @{item().targettable}.@{item().targettable}",
 										"type": "Expression"
 									}
 								},
