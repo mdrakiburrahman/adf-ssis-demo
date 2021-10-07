@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemSSISLogs'"
 		},
+		"AzureSqlMI_AE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI_AE'"
+		},
 		"FileSystemPackageStore_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileSystemPackageStore'"
@@ -22,6 +26,10 @@
 		"Synapse_AzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
+		},
+		"SHIR_Local_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SHIR_Local'"
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -57,6 +65,14 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"type": "secureString"
+		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "boor"
 		},
 		"containerUri": {
 			"type": "string",
@@ -96,6 +112,9 @@
 					},
 					"Synapse_AzureBlobStorage_connectionString": {
 						"value": "[parameters('Synapse_AzureBlobStorage_connectionString')]"
+					},
+					"AzureSqlMI_AE_connectionString": {
+						"value": "[parameters('AzureSqlMI_AE_connectionString')]"
 					},
 					"AzureKeyVault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault_properties_typeProperties_baseUrl')]"
@@ -141,6 +160,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"SHIR_Local_password": {
+						"value": "[parameters('SHIR_Local_password')]"
+					},
+					"SHIR_Local_properties_typeProperties_host": {
+						"value": "[parameters('SHIR_Local_properties_typeProperties_host')]"
+					},
+					"SHIR_Local_properties_typeProperties_userId": {
+						"value": "[parameters('SHIR_Local_properties_typeProperties_userId')]"
 					}
 				}
 			},

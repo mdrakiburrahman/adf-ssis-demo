@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
 		},
+		"AzureSqlMI_AE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI_AE'"
+		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://aia-braze-v2-poc-akv.vault.azure.net/"
@@ -147,6 +151,16 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DATFileIR')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SSISAzureIntegrationRuntime-01')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -201,9 +215,7 @@
 			"name": "[concat(parameters('factoryName'), '/default')]",
 			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
 			"apiVersion": "2018-06-01",
-			"properties": {
-				"preventDataExfiltration": false
-			},
+			"properties": {},
 			"dependsOn": []
 		},
 		{
@@ -362,6 +374,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -572,6 +588,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -774,6 +794,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"parameters": {
 					"purview_account": {
 						"type": "string",
@@ -781,7 +805,7 @@
 					},
 					"scan_name": {
 						"type": "string",
-						"defaultValue": "Scan-08"
+						"defaultValue": "Scan-02"
 					}
 				},
 				"folder": {
@@ -815,6 +839,33 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlMI_AE')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlMI",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlMI_AE_connectionString')]",
+					"alwaysEncryptedSettings": {
+						"alwaysEncryptedAkvAuthType": "ServicePrincipal",
+						"servicePrincipalId": "72b8dc93-6305-4fe2-aed7-d73f5837b008",
+						"servicePrincipalKey": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					}
+				},
+				"connectVia": {
+					"referenceName": "DATFileIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
 			]
 		},
 		{
@@ -965,214 +1016,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureFileSystemPackageStore')]",
 				"[concat(variables('factoryId'), '/linkedServices/FileSystemPackageStore')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/1-DataLake_2_SQLMI_via_SSISDB')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Execute SSIS package - SSISDB",
-						"description": "Data Lake to SQL MI",
-						"type": "ExecuteSSISPackage",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"packageLocation": {
-								"packagePath": "LoadFromDataLake/Azure-LoadingFilesFromDataLake01/Package.dtsx",
-								"type": "SSISDB"
-							},
-							"environmentPath": null,
-							"connectVia": {
-								"referenceName": "SSISAzureIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"loggingLevel": "Basic",
-							"projectConnectionManagers": {},
-							"packageConnectionManagers": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "SSIS-Demo"
-				},
-				"annotations": [],
-				"lastPublishTime": "2021-03-29T12:31:42Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/2-DataLake_2_SQLMI_via_FileSystem')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Execute SSIS package - FileSystem",
-						"type": "ExecuteSSISPackage",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"packageLocation": {
-								"type": "PackageStore",
-								"packagePath": "myFileSystemPackageStore/Azure-LoadingFilesFromDataLake01\\Package",
-								"typeProperties": {
-									"packagePassword": {
-										"type": "SecureString",
-										"value": "**********"
-									}
-								}
-							},
-							"connectVia": {
-								"referenceName": "SSISAzureIntegrationRuntime",
-								"type": "IntegrationRuntimeReference"
-							},
-							"projectConnectionManagers": {},
-							"packageConnectionManagers": {
-								"DataLake": {
-									"AccountKey": {
-										"value": {
-											"type": "AzureKeyVaultSecret",
-											"store": {
-												"referenceName": "AzureKeyVault",
-												"type": "LinkedServiceReference"
-											},
-											"secretName": "SSIS-DataLake-AccountKey"
-										}
-									},
-									"AccountName": {
-										"value": "aiasqlinsightsstorage"
-									},
-									"AuthType": {
-										"value": "1"
-									},
-									"ConnectByProxy": {
-										"value": "False"
-									},
-									"ConnectUsingManagedIdentity": {
-										"value": "False"
-									},
-									"ConnectionString": {
-										"value": "ServiceType=AzureBlobFS;AccountName=aiasqlinsightsstorage;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
-									},
-									"EndpointSuffix": {
-										"value": "core.windows.net"
-									},
-									"SasToken": {
-										"value": {
-											"type": "SecureString",
-											"value": "**********"
-										}
-									},
-									"ServicePrincipalKey": {
-										"value": {
-											"type": "SecureString",
-											"value": "**********"
-										}
-									},
-									"ServiceType": {
-										"value": "2"
-									},
-									"TargetServerVersion": {
-										"value": "140"
-									},
-									"UseHttps": {
-										"value": "True"
-									}
-								},
-								"currents_ODBC": {
-									"ConnectByProxy": {
-										"value": "False"
-									},
-									"ConnectionString": {
-										"value": "server=tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433;uid=boor;Driver={ODBC Driver 13 for SQL Server};database=currents;"
-									},
-									"InitialCatalog": {
-										"value": "currents"
-									},
-									"Password": {
-										"value": {
-											"type": "AzureKeyVaultSecret",
-											"store": {
-												"referenceName": "AzureKeyVault",
-												"type": "LinkedServiceReference"
-											},
-											"secretName": "SSIS-currents-Password"
-										}
-									},
-									"RetainSameConnection": {
-										"value": "False"
-									},
-									"ServerName": {
-										"value": "tcp:aiasqlmisvr01.a1e189469806.database.windows.net,1433"
-									},
-									"UserName": {
-										"value": "boor"
-									}
-								},
-								"currents_OLEDB": {
-									"ConnectByProxy": {
-										"value": "False"
-									},
-									"ConnectUsingManagedIdentity": {
-										"value": "False"
-									},
-									"ConnectionString": {
-										"value": "Data Source=aiasqlmisvr01.a1e189469806.database.windows.net;User ID=boor;Initial Catalog=currents;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;"
-									},
-									"InitialCatalog": {
-										"value": "currents"
-									},
-									"Password": {
-										"value": {
-											"type": "AzureKeyVaultSecret",
-											"store": {
-												"referenceName": "AzureKeyVault",
-												"type": "LinkedServiceReference"
-											},
-											"secretName": "SSIS-currents-Password"
-										}
-									},
-									"RetainSameConnection": {
-										"value": "False"
-									},
-									"ServerName": {
-										"value": "aiasqlmisvr01.a1e189469806.database.windows.net"
-									},
-									"UserName": {
-										"value": "boor"
-									}
-								}
-							}
-						}
-					}
-				],
-				"folder": {
-					"name": "SSIS-Demo"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SSISAzureIntegrationRuntime')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault')]"
 			]
 		}
 	]

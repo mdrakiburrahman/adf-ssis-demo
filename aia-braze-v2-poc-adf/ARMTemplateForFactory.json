@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureFileSystemSSISLogs'"
 		},
+		"AzureSqlMI_AE_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlMI_AE'"
+		},
 		"FileSystemPackageStore_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileSystemPackageStore'"
@@ -22,6 +26,10 @@
 		"Synapse_AzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Synapse_AzureBlobStorage'"
+		},
+		"SHIR_Local_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SHIR_Local'"
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -57,6 +65,14 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"type": "secureString"
+		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "boor"
 		}
 	},
 	"variables": {
@@ -147,6 +163,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/0_Level"
 				},
@@ -191,6 +211,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -243,6 +267,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "Braze-Autoloader/0_Root"
 				},
@@ -548,6 +576,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/1_Level"
 				},
@@ -655,6 +687,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "Braze-Autoloader/1_Supporting"
 				},
@@ -819,6 +855,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -892,6 +932,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -964,6 +1008,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1036,6 +1084,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1251,6 +1303,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "Braze-Autoloader/1_Supporting"
 				},
@@ -1328,6 +1384,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1400,6 +1460,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1472,6 +1536,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1544,6 +1612,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Parallel"
 				},
@@ -1637,6 +1709,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -1730,6 +1806,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -1823,6 +1903,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -1916,6 +2000,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -2009,6 +2097,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -2102,6 +2194,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -2195,6 +2291,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/2_Level/Serial"
 				},
@@ -2360,6 +2460,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -2526,6 +2630,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-IR-stop-reproduction/3_Level"
 				},
@@ -2736,6 +2844,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"folder": {
 					"name": "SSIS-Demo"
 				},
@@ -2938,6 +3050,10 @@
 						}
 					}
 				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
 				"parameters": {
 					"purview_account": {
 						"type": "string",
@@ -2945,7 +3061,7 @@
 					},
 					"scan_name": {
 						"type": "string",
-						"defaultValue": "Scan-08"
+						"defaultValue": "Scan-02"
 					}
 				},
 				"folder": {
@@ -3104,6 +3220,33 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlMI_AE')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlMI",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlMI_AE_connectionString')]",
+					"alwaysEncryptedSettings": {
+						"alwaysEncryptedAkvAuthType": "ServicePrincipal",
+						"servicePrincipalId": "72b8dc93-6305-4fe2-aed7-d73f5837b008",
+						"servicePrincipalKey": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					}
+				},
+				"connectVia": {
+					"referenceName": "DATFileIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Currents_SQLServer')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -3208,6 +3351,16 @@
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/CurrentsOnPremIntegrationRuntime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DATFileIR')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -3350,10 +3503,173 @@
 			"name": "[concat(parameters('factoryName'), '/default')]",
 			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
 			"apiVersion": "2018-06-01",
-			"properties": {
-				"preventDataExfiltration": false
-			},
+			"properties": {},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SHIR_Local')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Bunch of CSV files to load into SQL MI over Always Encrypted",
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('SHIR_Local_properties_typeProperties_host')]",
+					"userId": "[parameters('SHIR_Local_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SHIR_Local_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "DATFileIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DATFileIR')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CSV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SHIR_Local",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "AE_POC"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "FileServerLocation",
+						"fileName": "Table_1_1.csv",
+						"folderPath": "Table_1"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SHIR_Local')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CSV-to-SQL-MI')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "lkp_getsrcmetadata",
+						"description": "Get load metadata from SQL MI metadata table",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlMISource",
+								"sqlReaderQuery": "SELECT sourcefile, sourcepath, columndelimiter, rowdelimiter, targetschema, targettable\nFROM dbo.source_metadata",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "AzureSqlMI_AE",
+								"type": "DatasetReference",
+								"parameters": {
+									"StagingTable": "source_metadata",
+									"StagingSchema": "dbo"
+								}
+							},
+							"firstRowOnly": false
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "CSV-to-SQL-MI-AE-POC"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzureSqlMI_AE')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlMI_AE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlMI_AE",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"StagingTable": {
+						"type": "string",
+						"defaultValue": "source_metadata"
+					},
+					"StagingSchema": {
+						"type": "string",
+						"defaultValue": "dbo"
+					}
+				},
+				"folder": {
+					"name": "AE_POC"
+				},
+				"annotations": [],
+				"type": "AzureSqlMITable",
+				"schema": [],
+				"typeProperties": {
+					"schema": {
+						"value": "@dataset().StagingSchema",
+						"type": "Expression"
+					},
+					"table": {
+						"value": "@dataset().StagingTable",
+						"type": "Expression"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlMI_AE')]"
+			]
 		}
 	]
 }

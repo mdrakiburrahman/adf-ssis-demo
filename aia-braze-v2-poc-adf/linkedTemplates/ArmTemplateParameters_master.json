@@ -11,10 +11,16 @@
 		"AzureFileSystemSSISLogs_connectionString": {
 			"value": ""
 		},
+		"AzureSqlMI_AE_connectionString": {
+			"value": ""
+		},
 		"FileSystemPackageStore_password": {
 			"value": ""
 		},
 		"Synapse_AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"SHIR_Local_password": {
 			"value": ""
 		},
 		"AzureKeyVault_properties_typeProperties_baseUrl": {
@@ -43,6 +49,12 @@
 		},
 		"SSISAzureIntegrationRuntime_properties_typeProperties_ssisProperties_catalogInfo_catalogAdminPassword": {
 			"value": ""
+		},
+		"SHIR_Local_properties_typeProperties_host": {
+			"value": "C:\\AE_POC\\Data"
+		},
+		"SHIR_Local_properties_typeProperties_userId": {
+			"value": "boor"
 		},
 		"containerUri": {
 			"value": ""
