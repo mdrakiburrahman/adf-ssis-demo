@@ -74,12 +74,30 @@
 										"type": "DelimitedTextReadSettings"
 									}
 								},
+								"sink": {
+									"type": "SqlMISink"
+								},
 								"enableStaging": false
 							},
 							"inputs": [
 								{
 									"referenceName": "CSV",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"sourcepath": "Table_1",
+										"columndelimiter": ",",
+										"sourcefile": "Table_1_1.csv"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "AzureSqlMI_AE",
+									"type": "DatasetReference",
+									"parameters": {
+										"StagingTable": "source_metadata",
+										"StagingSchema": "dbo"
+									}
 								}
 							]
 						}
