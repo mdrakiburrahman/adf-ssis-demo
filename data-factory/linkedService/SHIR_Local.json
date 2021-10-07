@@ -12,6 +12,7 @@
 		"connectVia": {
 			"referenceName": "DATFileIR",
 			"type": "IntegrationRuntimeReference"
-		}
+		},
+		"description": "Bunch of CSV files to load into SQL MI over Always Encrypted"
 	}
 }
