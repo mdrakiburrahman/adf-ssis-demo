@@ -5,6 +5,24 @@
 			"referenceName": "SHIR_Local",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourcepath": {
+				"type": "string",
+				"defaultValue": "Table_1"
+			},
+			"columndelimiter": {
+				"type": "string",
+				"defaultValue": ","
+			},
+			"sourcefile": {
+				"type": "string",
+				"defaultValue": "Table_1_1.csv"
+			},
+			"rowdelimiter": {
+				"type": "string",
+				"defaultValue": "\\r\\n"
+			}
+		},
 		"folder": {
 			"name": "AE_POC"
 		},
@@ -13,33 +31,23 @@
 		"typeProperties": {
 			"location": {
 				"type": "FileServerLocation",
-				"fileName": "Table_1_1.csv",
-				"folderPath": "Table_1"
+				"fileName": {
+					"value": "@dataset().sourcefile",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().sourcepath",
+					"type": "Expression"
+				}
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": {
+				"value": "@dataset().columndelimiter",
+				"type": "Expression"
+			},
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
