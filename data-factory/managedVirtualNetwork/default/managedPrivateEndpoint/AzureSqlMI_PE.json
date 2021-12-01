@@ -1,0 +1,7 @@
+{
+	"name": "AzureSqlMI_PE",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/ce859648-30e1-4135-9d0f-8358aebfe789/resourceGroups/aia-sqlinsights-rg/providers/Microsoft.Sql/managedInstances/aiasqlmisvr01",
+		"groupId": "managedInstance"
+	}
+}
